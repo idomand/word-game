@@ -4,18 +4,17 @@ import "./App.css";
 import Main from "./Components/Main";
 import Header from "./Components/Header";
 import AllWords from "./Components/AllWords";
+import ScoreBoard from "./Components/ScoreBoard";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-
-        <header>
-          <Link to="/">home!</Link>
-        </header>
         <Routes>
           <Route path="/allWords" element={<AllWords />} />
+          <Route path="/score-board" element={<ScoreBoard />} />
+
           <Route path="/" element={<Main />} />
         </Routes>
       </BrowserRouter>
