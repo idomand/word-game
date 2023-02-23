@@ -6,6 +6,7 @@ export default function Main({}: Props) {
   return (
     <main>
       <h1>Main</h1>
+      <h2>test</h2>
     </main>
   );
 }
