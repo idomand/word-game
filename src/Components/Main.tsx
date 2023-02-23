@@ -7,6 +7,8 @@ export default function Main({}: Props) {
     <main>
       <h1>Main</h1>
       <h2>test</h2>
+      <h2>test2</h2>
+
     </main>
   );
 }
