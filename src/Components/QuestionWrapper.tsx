@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { basicWord } from "../Types/basicWord";
 
-export default function QuestionWrapper(FullWord: basicWord) {
-  console.log("FullWord :>> ", FullWord);
+export default function QuestionWrapper({
+  word,
+  Artikel,
+  Meaning,
+  Plural,
+}: basicWord) {
   return (
     <div>
-      <h2 className="text-center">
-        what's the artikel of the word {FullWord.word}?
-      </h2>
-      <p>the meaning of the word is {FullWord.Meaning}</p>
+      <h2 className="text-center">what's the artikel of the word {word}?</h2>
+      <p>the meaning of the word is {Meaning}</p>
     </div>
   );
 }

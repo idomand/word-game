@@ -20,7 +20,12 @@ export default function GameBoard({}: Props) {
 
   return (
     <>
-      <QuestionWrapper FullWord={FullWord} />
+      <QuestionWrapper
+        word={FullWord.word}
+        Meaning={FullWord.Meaning}
+        Artikel={FullWord.Artikel}
+        Plural={FullWord.Plural}
+      />
       <ButtonWrapper />
     </>
   );
