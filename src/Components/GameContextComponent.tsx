@@ -14,7 +14,7 @@ let defaultData = {
     word: "",
     Meaning: "",
     Artikel: "",
-    Plural: "",
+    Plural: " ",
   },
 };
 export const useTheme = () => {
