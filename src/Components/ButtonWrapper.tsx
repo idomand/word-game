@@ -1,10 +1,10 @@
 import React from "react";
 
-type Props = {};
+// type Props = {};
 
-export default function ButtonWrapper({}: Props) {
-  function clickButton(word: "Der" | "Die" | "Das") {
-    console.log("word :>> ", word);
+export default function ButtonWrapper({ setUserAnswer }: any) {
+  function clickButton(artikel: "Der" | "Die" | "Das") {
+    setUserAnswer(artikel);
   }
 
   return (
