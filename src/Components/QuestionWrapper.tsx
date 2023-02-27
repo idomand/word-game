@@ -12,6 +12,7 @@ export default function QuestionWrapper({
     <div>
       <h2 className="text-center">what's the artikel of the word {word}?</h2>
       <p>the meaning of the word is {Meaning}</p>
+      <p>the Artikel is {Artikel} </p>
     </div>
   );
 }

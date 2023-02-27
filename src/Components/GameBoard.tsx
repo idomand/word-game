@@ -6,7 +6,7 @@ import data from "../German-words-data.json";
 type Props = {};
 
 export default function GameBoard({}: Props) {
-  const [FullWord, setFullWord] = useState({
+  const [fullWord, setFullWord] = useState({
     word: "",
     Meaning: "",
     Artikel: "",
@@ -14,19 +14,32 @@ export default function GameBoard({}: Props) {
   });
 
   useEffect(() => {
-    let firstWordIndex = Math.floor(Math.random() * 1000);
+    const firstWordIndex = Math.floor(Math.random() * 1000);
     setFullWord(data[firstWordIndex]);
   }, []);
+
+  function setUserAnswer(answer: string) {
+    console.log("answer", answer);
+    let resultDiv;
+    if (answer === fullWord.Artikel) {
+      console.log("right");
+      resultDiv = <div>you are right</div>;
+    } else {
+      console.log("wrong");
+      resultDiv = <div>you are wrong</div>;
+    }
+  }
 
   return (
     <>
       <QuestionWrapper
-        word={FullWord.word}
-        Meaning={FullWord.Meaning}
-        Artikel={FullWord.Artikel}
-        Plural={FullWord.Plural}
+        word={fullWord.word}
+        Meaning={fullWord.Meaning}
+        Artikel={fullWord.Artikel}
+        Plural={fullWord.Plural}
       />
-      <ButtonWrapper />
+      <div className="border text-2xl font-bold"></div>
+      <ButtonWrapper setUserAnswer={setUserAnswer} />
     </>
   );
 }
