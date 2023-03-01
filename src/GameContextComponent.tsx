@@ -12,6 +12,7 @@ const initialState = {
   word: firstWord,
   score: 0,
   userName: "ido",
+  indexOfWord: 4,
 };
 
 type GameContextType = {
@@ -22,6 +23,7 @@ type GameContextType = {
       Artikel: string;
       Plural: string;
     };
+    indexOfWord: number;
     score: number;
     userName: string;
   };

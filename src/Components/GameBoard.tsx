@@ -2,26 +2,25 @@ import React, { useEffect, useState } from "react";
 import ButtonWrapper from "./ButtonWrapper";
 import QuestionWrapper from "./QuestionWrapper";
 import data from "../German-words-data.json";
+import { useGameContext } from "../GameContextComponent";
 
 type Props = {};
 
 export default function GameBoard({}: Props) {
-  const [fullWord, setFullWord] = useState({
-    word: "",
-    Meaning: "",
-    Artikel: "",
-    Plural: "",
-  });
+  const { state, dispatch } = useGameContext();
 
   useEffect(() => {
-    const firstWordIndex = Math.floor(Math.random() * 1000);
-    setFullWord(data[firstWordIndex]);
+    const randomWordIndex = Math.floor(Math.random() * 1000);
+    dispatch({
+      type: "update-word",
+      payload: { indexOfWord: randomWordIndex },
+    });
   }, []);
 
   function setUserAnswer(answer: string) {
     console.log("answer", answer);
     let resultDiv;
-    if (answer === fullWord.Artikel) {
+    if (answer === state.word.Artikel) {
       console.log("right");
       resultDiv = <div>you are right</div>;
     } else {
@@ -33,10 +32,10 @@ export default function GameBoard({}: Props) {
   return (
     <>
       <QuestionWrapper
-        word={fullWord.word}
-        Meaning={fullWord.Meaning}
-        Artikel={fullWord.Artikel}
-        Plural={fullWord.Plural}
+        word={state.word.word}
+        Meaning={state.word.Meaning}
+        Artikel={state.word.Artikel}
+        Plural={state.word.Plural}
       />
       <div className="border text-2xl font-bold"></div>
       <ButtonWrapper setUserAnswer={setUserAnswer} />
