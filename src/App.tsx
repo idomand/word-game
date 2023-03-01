@@ -5,7 +5,7 @@ import Main from "./Components/Main";
 import Header from "./Components/Header";
 import AllWords from "./Components/AllWords";
 import ScoreBoard from "./Components/ScoreBoard";
-import GameContextComponent from "./Components/GameContextComponent";
+import GameContextComponent from "./GameContextComponent";
 
 function App() {
   return (
