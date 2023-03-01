@@ -1,13 +1,33 @@
 import data from "../German-words-data.json";
 
-const firstWord = data[1];
+export const firstWord = data[1];
 
-type GameReducerType = {};
+type GameReducerState = {
+  word: {
+    word: string;
+    Meaning: string;
+    Artikel: string;
+    Plural: string;
+  };
+  score: number;
+  userName: string;
+};
 
-type GameReducerState = {};
-type GameReducerActions = {};
+export type GameReducerActions = {
+  type: "update-score";
+  payload: {
+    score: number;
+  };
+};
 
-export function GameReducer(
-  state: GameReducerState = firstWord,
+export default function GameReducer(
+  state: GameReducerState,
   action: GameReducerActions
-) {}
+) {
+  if (action.type === "update-score") {
+    const { score } = action.payload;
+    return { ...state, score };
+  }
+
+  return state;
+}
