@@ -9,21 +9,21 @@ export default function Header({}: Props) {
         to="/"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline "
       >
-        new game
+        Play
       </Link>
 
       <Link
         to="/score-board"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
       >
-        score board
+        Score board
       </Link>
 
       <Link
         to="/allWords"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
       >
-        list of words
+        List of All Words
       </Link>
     </header>
   );

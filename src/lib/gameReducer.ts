@@ -24,22 +24,40 @@ type GetArrayOfWord = {
   };
 };
 
+type CheckQuestion = {
+  type: "check-question";
+  payload: {
+    // numberOfWords: number;
+    // startingIndex: number;
+    isAnswerCorrect: boolean;
+    // indexOfWord: number;
+    score: number;
+  };
+};
+
 export type GameReducerActions =
   | UpdateScoreAction
   | UpdateWordAction
-  | GetArrayOfWord;
+  | GetArrayOfWord
+  | CheckQuestion;
 
 export default function GameReducer(
   state: GlobalState,
   action: GameReducerActions
 ) {
   if (action.type === "update-score") {
+    console.log(
+      "%c action-type: update-score ",
+      "background: yellow; color: black"
+    );
+
     const { score } = action.payload;
     return { ...state, score };
-  } else if (action.type === "update-word") {
-    const { indexOfWord } = action.payload;
-    return { ...state, indexOfWord };
   } else if (action.type === "get-array-of-words") {
+    console.log(
+      "%c action-type: get-array-of-words ",
+      "background: yellow; color: black"
+    );
     const { numberOfWords, startingIndex } = action.payload;
     const arrayOfWords = [];
     for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
@@ -47,6 +65,29 @@ export default function GameReducer(
     }
     const word = arrayOfWords[0];
     return { ...state, word, arrayOfWords };
+  } else if (action.type === "update-word") {
+    console.log(
+      "%c action-type: update-score ",
+      "background: yellow; update-word"
+    );
+    const wordObject = state.arrayOfWords[state.indexOfWord + 1];
+    return { ...state, wordObject };
+  } else if (action.type === "check-question") {
+    console.log(
+      "%c action-type: check-question ",
+      "background: lightblue; color: black"
+    );
+
+    let { isAnswerCorrect, score } = action.payload;
+
+    if (isAnswerCorrect) {
+      score = score + 1;
+    }
+
+    console.log("isAnswerCorrect", isAnswerCorrect);
+    const wordObject = state.arrayOfWords[state.indexOfWord + 1];
+    return { ...state, wordObject, score };
   }
+
   return state;
 }

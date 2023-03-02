@@ -9,7 +9,7 @@ import React, {
 import GameReducer, { firstWord, GameReducerActions } from "./lib/gameReducer";
 
 const initialState = {
-  word: firstWord,
+  wordObject: firstWord,
   score: 0,
   userName: "ido",
   indexOfWord: 0,

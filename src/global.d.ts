@@ -6,7 +6,7 @@ type basicWord = {
 };
 
 type GlobalState = {
-  word: basicWord;
+  wordObject: basicWord;
   indexOfWord: number;
   arrayOfWords: basicWord[];
   score: number;
