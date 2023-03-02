@@ -2,18 +2,6 @@ import data from "../German-words-data.json";
 
 export const firstWord = data[4];
 
-type GameReducerState = {
-  word: {
-    word: string;
-    Meaning: string;
-    Artikel: string;
-    Plural: string;
-  };
-  score: number;
-  userName: string;
-  indexOfWord: number;
-};
-
 type UpdateWordAction = {
   type: "update-word";
   payload: {
@@ -31,7 +19,7 @@ type UpdateScoreAction = {
 export type GameReducerActions = UpdateScoreAction | UpdateWordAction;
 
 export default function GameReducer(
-  state: GameReducerState,
+  state: GlobalState,
   action: GameReducerActions
 ) {
   if (action.type === "update-score") {

@@ -12,21 +12,12 @@ const initialState = {
   word: firstWord,
   score: 0,
   userName: "ido",
-  indexOfWord: 4,
+  indexOfWord: 0,
+  arrayOfWord: [],
 };
 
 type GameContextType = {
-  state: {
-    word: {
-      word: string;
-      Meaning: string;
-      Artikel: string;
-      Plural: string;
-    };
-    indexOfWord: number;
-    score: number;
-    userName: string;
-  };
+  state: GlobalState;
   dispatch: Dispatch<GameReducerActions>;
 };
 

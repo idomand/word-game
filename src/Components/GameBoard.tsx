@@ -17,18 +17,6 @@ export default function GameBoard({}: Props) {
     });
   }, []);
 
-  function setUserAnswer(answer: string) {
-    console.log("answer", answer);
-    let resultDiv;
-    if (answer === state.word.Artikel) {
-      console.log("right");
-      resultDiv = <div>you are right</div>;
-    } else {
-      console.log("wrong");
-      resultDiv = <div>you are wrong</div>;
-    }
-  }
-
   return (
     <>
       <QuestionWrapper
@@ -38,7 +26,7 @@ export default function GameBoard({}: Props) {
         Plural={state.word.Plural}
       />
       <div className="border text-2xl font-bold"></div>
-      <ButtonWrapper setUserAnswer={setUserAnswer} />
+      <ButtonWrapper />
     </>
   );
 }

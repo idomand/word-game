@@ -2,9 +2,9 @@ import React from "react";
 
 // type Props = {};
 
-export default function ButtonWrapper({ setUserAnswer }: any) {
+export default function ButtonWrapper() {
   function clickButton(artikel: "Der" | "Die" | "Das") {
-    setUserAnswer(artikel);
+    console.log("artikel", artikel);
   }
 
   return (
