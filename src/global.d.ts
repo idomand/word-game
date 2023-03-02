@@ -8,7 +8,7 @@ type basicWord = {
 type GlobalState = {
   word: basicWord;
   indexOfWord: number;
-  arrayOfWord: basicWord[];
+  arrayOfWords: basicWord[];
   score: number;
   userName: string;
 };

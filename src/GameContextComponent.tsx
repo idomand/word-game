@@ -13,7 +13,7 @@ const initialState = {
   score: 0,
   userName: "ido",
   indexOfWord: 0,
-  arrayOfWord: [],
+  arrayOfWords: [],
 };
 
 type GameContextType = {

@@ -16,7 +16,18 @@ type UpdateScoreAction = {
   };
 };
 
-export type GameReducerActions = UpdateScoreAction | UpdateWordAction;
+type GetArrayOfWord = {
+  type: "get-array-of-words";
+  payload: {
+    numberOfWords: number;
+    startingIndex: number;
+  };
+};
+
+export type GameReducerActions =
+  | UpdateScoreAction
+  | UpdateWordAction
+  | GetArrayOfWord;
 
 export default function GameReducer(
   state: GlobalState,
@@ -27,9 +38,15 @@ export default function GameReducer(
     return { ...state, score };
   } else if (action.type === "update-word") {
     const { indexOfWord } = action.payload;
-
     return { ...state, indexOfWord };
+  } else if (action.type === "get-array-of-words") {
+    const { numberOfWords, startingIndex } = action.payload;
+    const arrayOfWords = [];
+    for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
+      arrayOfWords.push(data[i]);
+    }
+    const word = arrayOfWords[0];
+    return { ...state, word, arrayOfWords };
   }
-
   return state;
 }

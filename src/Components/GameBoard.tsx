@@ -7,15 +7,7 @@ import { useGameContext } from "../GameContextComponent";
 type Props = {};
 
 export default function GameBoard({}: Props) {
-  const { state, dispatch } = useGameContext();
-
-  useEffect(() => {
-    const randomWordIndex = Math.floor(Math.random() * 1000);
-    dispatch({
-      type: "update-word",
-      payload: { indexOfWord: randomWordIndex },
-    });
-  }, []);
+  const { state } = useGameContext();
 
   return (
     <>

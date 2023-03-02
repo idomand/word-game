@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGameContext } from "../GameContextComponent";
 import GameBoard from "./GameBoard";
 
@@ -6,23 +6,19 @@ type Props = {};
 
 export default function Main({}: Props) {
   const { state, dispatch } = useGameContext();
+  console.log("state.arrayOfWords[0]", state.arrayOfWords[0]);
+  useEffect(() => {
+    const randomStartingIndex = Math.floor(Math.random() * 1000);
 
-  console.log("state :>> ", state);
+    dispatch({
+      type: "get-array-of-words",
+      payload: { numberOfWords: 5, startingIndex: randomStartingIndex },
+    });
+  }, []);
 
   return (
     <main className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
-      <h1>Main -- the score is {state.score}</h1>
-
-      <button
-        onClick={() => {
-          dispatch({
-            type: "update-score",
-            payload: { score: state.score + 1 },
-          });
-        }}
-      >
-        click me
-      </button>
+      <h1>your score is {state.score}</h1>
 
       <GameBoard />
     </main>
