@@ -1,8 +1,8 @@
 type basicWord = {
   word: string;
+  Plural: string;
   Meaning: string;
   Artikel: string;
-  Plural: string;
 };
 
 type GlobalState = {
