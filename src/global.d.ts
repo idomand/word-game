@@ -6,9 +6,9 @@ type basicWord = {
 };
 
 type GlobalState = {
-  arrayOfWord: basicWord[];
   word: basicWord;
   indexOfWord: number;
+  arrayOfWord: basicWord[];
   score: number;
   userName: string;
 };
