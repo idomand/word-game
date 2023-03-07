@@ -4,13 +4,6 @@ const randomStartingIndex = Math.floor(Math.random() * 1000);
 
 export const firstWord = data[randomStartingIndex];
 
-type UpdateWordAction = {
-  type: "update-word";
-  payload: {
-    indexOfWord: number;
-  };
-};
-
 type UpdateScoreAction = {
   type: "update-score";
   payload: {
@@ -36,7 +29,6 @@ type CheckQuestion = {
 
 export type GameReducerActions =
   | UpdateScoreAction
-  | UpdateWordAction
   | GetArrayOfWord
   | CheckQuestion;
 
@@ -58,30 +50,26 @@ export default function GameReducer(
       "background: yellow; color: black"
     );
     const { numberOfWords, startingIndex } = action.payload;
+    state.indexOfWordInAllData = startingIndex;
     const arrayOfWords = [];
     for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
       arrayOfWords.push(data[i]);
     }
-    const word = arrayOfWords[0];
-    return { ...state, word, arrayOfWords };
-  } else if (action.type === "update-word") {
-    console.log(
-      "%c action-type: update-score ",
-      "background: yellow; update-word"
-    );
-    const wordObject = state.arrayOfWords[state.indexOfWord + 1];
-    return { ...state, wordObject };
+    state.wordObject = arrayOfWords[0];
+    return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
     console.log(
       "%c action-type: check-question ",
       "background: lightblue; color: black"
     );
-    console.log("state.wordObject", state.wordObject);
+    console.log("state", state);
     let { isAnswerCorrect, score } = action.payload;
     if (isAnswerCorrect) {
       score = score + 1;
     }
-    const wordObject = state.arrayOfWords[state.indexOfWord + 1];
+
+    const wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
+    state.indexOfWordInArray = state.indexOfWordInArray + 1;
     console.log("wordObject", wordObject);
     return { ...state, wordObject, score };
   }

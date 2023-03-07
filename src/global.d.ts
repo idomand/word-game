@@ -7,7 +7,8 @@ type basicWord = {
 
 type GlobalState = {
   wordObject: basicWord;
-  indexOfWord: number;
+  indexOfWordInAllData: number;
+  indexOfWordInArray: number;
   arrayOfWords: basicWord[];
   score: number;
   userName: string;

@@ -12,7 +12,8 @@ const initialState = {
   wordObject: firstWord,
   score: 0,
   userName: "ido",
-  indexOfWord: 0,
+  indexOfWordInArray: 0,
+  indexOfWordInAllData: 0,
   arrayOfWords: [],
 };
 

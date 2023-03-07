@@ -17,8 +17,23 @@ export default function Home({}: Props) {
 
   return (
     <main className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
-      <h1>your score is {state.score}</h1>
-
+      <div className=" border-2 border-black px-5 py-2">
+        <div>
+          <div className="font-bold"> state of the app:</div>
+          <div>score: {state.score}</div>
+          <div>indexOfWordInAllData: {state.indexOfWordInAllData}</div>
+          <div>indexOfWordInArray: {state.indexOfWordInArray}</div>
+          <div>
+            word: {state.wordObject.Meaning}= {state.wordObject.word}
+          </div>
+        </div>
+        <div>
+          <span className="underline"> array of five words: </span>
+          {state.arrayOfWords.map((element) => {
+            return <span key={element.word}>{element.word}, </span>;
+          })}
+        </div>
+      </div>
       <GameBoard />
     </main>
   );
