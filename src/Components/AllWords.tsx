@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import data from "../German-words-data.json";
-import clsx from "clsx";
 
 type Props = {};
 
@@ -22,33 +21,32 @@ export default function AllWords({}: Props) {
 
   function pickColorBasedOnArtikel(artikel: string) {
     if (artikel === "Der") {
-      return "blue";
+      return `border-blue-200 bg-blue-100 hover:bg-blue-300 border-blue-600`;
     }
     if (artikel === "Das") {
-      return "green";
+      return `border-green-200 bg-green-100 hover:bg-green-300 border-green-600`;
     }
     if (artikel === "Die") {
-      return "red";
+      return `border-red-200 bg-red-100 hover:bg-red-300 border-red-600`;
     }
   }
 
   return (
     <div>
       <h1 className="m-5 flex justify-center">AllWords</h1>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="mx-10 grid grid-cols-5  gap-4">
         {smallDataSet.map((element) => {
           let elementColor = pickColorBasedOnArtikel(element.Artikel);
-
-          //!======================================
-          // todo: add clsx to classnames to use it to pick red-blue-green
-          //!======================================
+          console.log("elementColor", elementColor);
 
           return (
             <div
-              className={`flex justify-center border-4 border-${elementColor}-200 bg-${elementColor}-200 hover:bg-${elementColor}-500 hover: hover:font-bold border-${elementColor}-600`}
+              className={`flex justify-center border-4 hover:font-bold  ${elementColor} `}
               key={element.Meaning}
             >
-              <p>{`${element.Meaning} : ${element.word}`} </p>
+              <p>
+                {`The ${element.Meaning} : ${element.Artikel} ${element.word}`}{" "}
+              </p>
             </div>
           );
         })}

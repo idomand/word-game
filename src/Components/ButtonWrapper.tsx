@@ -15,7 +15,6 @@ export default function ButtonWrapper({ checkUserAnswer }: ButtonWrapperProps) {
       >
         Der
       </button>
-
       <button
         onClick={() => {
           checkUserAnswer("Die");
