@@ -1,6 +1,8 @@
 import data from "../German-words-data.json";
 
-export const firstWord = data[4];
+const randomStartingIndex = Math.floor(Math.random() * 1000);
+
+export const firstWord = data[randomStartingIndex];
 
 type UpdateWordAction = {
   type: "update-word";
@@ -27,10 +29,7 @@ type GetArrayOfWord = {
 type CheckQuestion = {
   type: "check-question";
   payload: {
-    // numberOfWords: number;
-    // startingIndex: number;
     isAnswerCorrect: boolean;
-    // indexOfWord: number;
     score: number;
   };
 };
@@ -77,15 +76,13 @@ export default function GameReducer(
       "%c action-type: check-question ",
       "background: lightblue; color: black"
     );
-
+    console.log("state.wordObject", state.wordObject);
     let { isAnswerCorrect, score } = action.payload;
-
     if (isAnswerCorrect) {
       score = score + 1;
     }
-
-    console.log("isAnswerCorrect", isAnswerCorrect);
     const wordObject = state.arrayOfWords[state.indexOfWord + 1];
+    console.log("wordObject", wordObject);
     return { ...state, wordObject, score };
   }
 

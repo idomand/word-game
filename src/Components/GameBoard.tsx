@@ -15,10 +15,6 @@ export default function GameBoard({}: Props) {
       type: "check-question",
       payload: { isAnswerCorrect: isCorrect, score: state.score },
     });
-
-    // dispatch({ type: "update-score", payload: { score: state.score + 1 } });
-
-    // dispatch({ type: "update-word", payload: { indexOfWord: 4 } });
   };
 
   return (
