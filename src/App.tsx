@@ -5,10 +5,7 @@ import ScoreBoard from "./Components/ScoreBoard";
 import GameContextComponent from "./GameContextComponent";
 import Home from "./Components/Home";
 
-import { db } from "./Firebase/firebase-config";
 function App() {
-  console.log("db", db);
-
   return (
     <GameContextComponent>
       <BrowserRouter>
