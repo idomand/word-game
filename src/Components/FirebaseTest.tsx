@@ -1,8 +1,6 @@
-import { async } from "@firebase/util";
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import {
   collection,
-  getDocs,
   addDoc,
   updateDoc,
   doc,
@@ -21,16 +19,6 @@ export default function FirebaseTest({}: Props) {
     getLiveData();
   }, []);
 
-  // const userCollectionRef = collection(db, "users");
-
-  // async function getData() {
-  //   const response = await getDocs(userCollectionRef);
-  //   const data = response.docs.map((doc) => {
-  //     return { ...doc.data(), id: doc.id };
-  //   });
-  //   setFirebaseData(data);
-  // }
-
   async function getLiveData() {
     onSnapshot(collection(db, "users"), (snapshot) => {
       let newData: any = [];
@@ -44,7 +32,6 @@ export default function FirebaseTest({}: Props) {
 
   async function createUser() {
     const docToAdd = { name: name, age: age };
-
     const docRef = await addDoc(collection(db, "users"), docToAdd);
   }
 
@@ -59,7 +46,7 @@ export default function FirebaseTest({}: Props) {
     await updateDoc(userDoc, newFields);
   }
 
-  function onSubmitFunc(e: any) {
+  function onSubmitFunc(e: FormEvent) {
     e.preventDefault();
     setAge(0);
     setName("");

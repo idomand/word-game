@@ -37,18 +37,9 @@ export default function GameReducer(
   action: GameReducerActions
 ) {
   if (action.type === "update-score") {
-    console.log(
-      "%c action-type: update-score ",
-      "background: yellow; color: black"
-    );
-
     const { score } = action.payload;
     return { ...state, score };
   } else if (action.type === "get-array-of-words") {
-    console.log(
-      "%c action-type: get-array-of-words ",
-      "background: yellow; color: black"
-    );
     const { numberOfWords, startingIndex } = action.payload;
     state.indexOfWordInAllData = startingIndex;
     const arrayOfWords = [];
@@ -58,11 +49,6 @@ export default function GameReducer(
     state.wordObject = arrayOfWords[0];
     return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
-    console.log(
-      "%c action-type: check-question ",
-      "background: lightblue; color: black"
-    );
-    console.log("state", state);
     let { isAnswerCorrect, score } = action.payload;
     if (isAnswerCorrect) {
       score = score + 1;
@@ -70,7 +56,6 @@ export default function GameReducer(
 
     const wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
     state.indexOfWordInArray = state.indexOfWordInArray + 1;
-    console.log("wordObject", wordObject);
     return { ...state, wordObject, score };
   }
 

@@ -18,7 +18,7 @@ export default function Home({}: Props) {
 
   return (
     <main className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
-      <FirebaseTest />
+      {/* <FirebaseTest /> */}
       <div className=" border-2 border-black px-5 py-2">
         <div>
           <div className="font-bold"> state of the app:</div>
