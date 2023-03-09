@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   collection,
   addDoc,
@@ -8,9 +8,8 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../Firebase/firebase-config";
-type Props = {};
 
-export default function FirebaseTest({}: Props) {
+export default function FirebaseTest() {
   const [firebaseData, setFirebaseData] = useState<any>([]);
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);

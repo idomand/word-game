@@ -1,5 +1,3 @@
-import React from "react";
-
 type ButtonWrapperProps = {
   checkUserAnswer: (userAnswer: "Der" | "Die" | "Das") => void;
 };

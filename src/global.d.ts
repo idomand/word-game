@@ -12,4 +12,6 @@ type GlobalState = {
   arrayOfWords: basicWord[];
   score: number;
   userName: string;
+  isGameStated: boolean;
+  isGameEnded: boolean;
 };

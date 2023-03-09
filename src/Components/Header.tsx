@@ -1,8 +1,6 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-type Props = {};
+import { Link } from "react-router-dom";
 
-export default function Header({}: Props) {
+export default function Header() {
   return (
     <header className="flex justify-center border bg-orange-400">
       <Link

@@ -26,11 +26,18 @@ type CheckQuestion = {
     score: number;
   };
 };
-
+type CheckLastQuestion = {
+  type: "check-last-question";
+  payload: {
+    isAnswerCorrect: boolean;
+    score: number;
+  };
+};
 export type GameReducerActions =
   | UpdateScoreAction
   | GetArrayOfWord
-  | CheckQuestion;
+  | CheckQuestion
+  | CheckLastQuestion;
 
 export default function GameReducer(
   state: GlobalState,
@@ -57,6 +64,8 @@ export default function GameReducer(
     const wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
     state.indexOfWordInArray = state.indexOfWordInArray + 1;
     return { ...state, wordObject, score };
+  } else if (action.type === "check-last-question") {
+    return { ...state };
   }
 
   return state;

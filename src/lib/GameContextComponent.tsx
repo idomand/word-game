@@ -6,7 +6,7 @@ import React, {
   useReducer,
 } from "react";
 
-import GameReducer, { firstWord, GameReducerActions } from "./lib/gameReducer";
+import GameReducer, { firstWord, GameReducerActions } from "./gameReducer";
 
 const initialState = {
   wordObject: firstWord,
@@ -15,6 +15,8 @@ const initialState = {
   indexOfWordInArray: 0,
   indexOfWordInAllData: 0,
   arrayOfWords: [],
+  isGameStated: false,
+  isGameEnded: false,
 };
 
 type GameContextType = {

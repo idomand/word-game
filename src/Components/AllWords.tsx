@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import data from "../German-words-data.json";
 
-type Props = {};
-
-export default function AllWords({}: Props) {
+export default function AllWords() {
   const [smallDataSet, setSmallDataSet] = useState<basicWord[]>([]);
 
   const myFunc = () => {

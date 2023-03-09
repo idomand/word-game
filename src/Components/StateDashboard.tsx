@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useGameContext } from "../GameContextComponent";
-import FirebaseTest from "./FirebaseTest";
-import GameBoard from "./GameBoard";
+import React from "react";
+import { useGameContext } from "../lib/GameContextComponent";
 
 type Props = {};
 
-export default function Home({}: Props) {
+export default function StateDashboard({}: Props) {
   const { state, dispatch } = useGameContext();
 
-  useEffect(() => {
-    const randomStartingIndex = Math.floor(Math.random() * 1000);
-    dispatch({
-      type: "get-array-of-words",
-      payload: { numberOfWords: 5, startingIndex: randomStartingIndex },
-    });
-  }, []);
-
   return (
-    <main className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
-      {/* <FirebaseTest /> */}
+    <div>
       <div className=" border-2 border-black px-5 py-2">
         <div>
           <div className="font-bold"> state of the app:</div>
@@ -37,7 +26,6 @@ export default function Home({}: Props) {
           })}
         </div>
       </div>
-      <GameBoard />
-    </main>
+    </div>
   );
 }

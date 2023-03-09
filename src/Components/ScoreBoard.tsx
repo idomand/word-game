@@ -1,7 +1,5 @@
 import React from "react";
 
-type Props = {};
-
-export default function ScoreBoard({}: Props) {
+export default function ScoreBoard() {
   return <div>ScoreBoard</div>;
 }
