@@ -14,7 +14,9 @@ https://resplendent-cactus-79b384.netlify.app/
 - [ ] Add an option to remove words / to hide words that you know well
 - [ ] Create the end of the game screen.
 - [ ] Update all tailwind css to be more responsive 
+- [ ] add React Query
 - [ ] Convert to a PWA
+
 
 
 
