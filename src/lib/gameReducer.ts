@@ -54,6 +54,7 @@ export default function GameReducer(
       arrayOfWords.push(data[i]);
     }
     state.wordObject = arrayOfWords[0];
+    state.isGameStated = true;
     return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
     let { isAnswerCorrect, score } = action.payload;
@@ -65,6 +66,9 @@ export default function GameReducer(
     state.indexOfWordInArray = state.indexOfWordInArray + 1;
     return { ...state, wordObject, score };
   } else if (action.type === "check-last-question") {
+    state.isGameEnded = true;
+    state.isGameStated = false;
+
     return { ...state };
   }
 
