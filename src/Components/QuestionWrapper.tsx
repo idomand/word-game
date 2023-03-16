@@ -5,7 +5,7 @@ export default function QuestionWrapper({
   Plural,
 }: basicWord) {
   return (
-    <div>
+    <div className="border-2">
       <h2 className="text-center">
         what's the artikel of the word:{" "}
         <span className="font-bold underline">{word}</span> ?

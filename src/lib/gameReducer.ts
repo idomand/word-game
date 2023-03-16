@@ -23,21 +23,25 @@ type CheckQuestion = {
   type: "check-question";
   payload: {
     isAnswerCorrect: boolean;
-    score: number;
   };
 };
 type CheckLastQuestion = {
   type: "check-last-question";
   payload: {
     isAnswerCorrect: boolean;
-    score: number;
   };
 };
+
+type RestartGame = {
+  type: "restart-game";
+};
+
 export type GameReducerActions =
   | UpdateScoreAction
   | GetArrayOfWord
   | CheckQuestion
-  | CheckLastQuestion;
+  | CheckLastQuestion
+  | RestartGame;
 
 export default function GameReducer(
   state: GlobalState,
@@ -57,17 +61,35 @@ export default function GameReducer(
     state.isGameStated = true;
     return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
-    let { isAnswerCorrect, score } = action.payload;
-    if (isAnswerCorrect) {
-      score = score + 1;
-    }
+    let { isAnswerCorrect } = action.payload;
 
+    if (isAnswerCorrect) {
+      state.score = state.score + 1;
+      console.log("arrayOfWordsRightAnswer", state.arrayOfWordsRightAnswer);
+      state.arrayOfWordsRightAnswer.push(state.wordObject);
+    } else {
+      console.log("arrayOfWordsWrongAnswer", state.arrayOfWordsWrongAnswer);
+
+      state.arrayOfWordsWrongAnswer.push(state.wordObject);
+    }
     const wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
     state.indexOfWordInArray = state.indexOfWordInArray + 1;
-    return { ...state, wordObject, score };
+    return { ...state, wordObject };
   } else if (action.type === "check-last-question") {
     state.isGameEnded = true;
     state.isGameStated = false;
+
+    return { ...state };
+  } else if (action.type === "restart-game") {
+    state.isGameEnded = false;
+    state.isGameStated = false;
+    state.arrayOfWords = [];
+    state.arrayOfWordsRightAnswer = [];
+    state.arrayOfWordsWrongAnswer = [];
+    (state.score = 0),
+      (state.userName = "ido"),
+      (state.indexOfWordInArray = 0),
+      (state.indexOfWordInAllData = 0);
 
     return { ...state };
   }

@@ -21,7 +21,9 @@ export default function StateDashboard({}: Props) {
           <div>did game end: {state.isGameEnded ? "true" : "false"}</div>
         </div>
         <div>
-          <span className="underline"> array of five words: </span>
+          <span className="underline">
+            array of {state.arrayOfWords.length} words:
+          </span>
           {state.arrayOfWords.map((element) => {
             return <span key={element.word}>{element.word}, </span>;
           })}

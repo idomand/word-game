@@ -4,6 +4,7 @@ import QuestionWrapper from "./QuestionWrapper";
 import { useGameContext } from "../lib/GameContextComponent";
 import StateDashboard from "./StateDashboard";
 import EndGameScreen from "./EndGameScreen";
+import GameStateWrapper from "./GameStateWrapper";
 
 export default function GameBoard() {
   const [numberOfWordsInGame, setNumberOfWordsInGame] = useState(3);
@@ -33,12 +34,12 @@ export default function GameBoard() {
     if (state.arrayOfWords.length === state.indexOfWordInArray + 1) {
       dispatch({
         type: "check-last-question",
-        payload: { isAnswerCorrect: isCorrect, score: state.score },
+        payload: { isAnswerCorrect: isCorrect },
       });
     } else {
       dispatch({
         type: "check-question",
-        payload: { isAnswerCorrect: isCorrect, score: state.score },
+        payload: { isAnswerCorrect: isCorrect },
       });
     }
   };
@@ -74,7 +75,8 @@ export default function GameBoard() {
       )}
 
       {state.isGameStated == true && state.isGameEnded == false && (
-        <>
+        <section className="border-4">
+          <GameStateWrapper />
           <QuestionWrapper
             Meaning={state.wordObject.Meaning}
             Artikel={state.wordObject.Artikel}
@@ -83,7 +85,7 @@ export default function GameBoard() {
           />
           <div className="border text-2xl font-bold"></div>
           <ButtonWrapper checkUserAnswer={checkUserAnswer} />
-        </>
+        </section>
       )}
 
       {state.isGameStated == false && state.isGameEnded && <EndGameScreen />}
