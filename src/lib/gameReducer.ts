@@ -62,14 +62,12 @@ export default function GameReducer(
     return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
     let { isAnswerCorrect } = action.payload;
-
     if (isAnswerCorrect) {
       state.score = state.score + 1;
       console.log("arrayOfWordsRightAnswer", state.arrayOfWordsRightAnswer);
       state.arrayOfWordsRightAnswer.push(state.wordObject);
     } else {
       console.log("arrayOfWordsWrongAnswer", state.arrayOfWordsWrongAnswer);
-
       state.arrayOfWordsWrongAnswer.push(state.wordObject);
     }
     const wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
