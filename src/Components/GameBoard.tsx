@@ -45,8 +45,8 @@ export default function GameBoard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
-      <div className="mb-10">{/* <StateDashboard /> */}</div>
+    <div className="flex flex-col items-center justify-center  border-2 border-slate-700  p-2">
+      {/* <div className="mb-10"><StateDashboard /></div> */}
 
       {state.isGameStated == false && state.isGameEnded == false && (
         <div>

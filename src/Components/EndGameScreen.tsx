@@ -1,4 +1,5 @@
 import { useGameContext } from "../lib/GameContextComponent";
+import BasicWord from "./Common/BasicWord";
 
 export default function EndGameScreen() {
   const { state, dispatch } = useGameContext();
@@ -16,9 +17,13 @@ export default function EndGameScreen() {
           <div>
             {state.arrayOfWordsRightAnswer.map((element) => {
               return (
-                <div key={element.word}>
-                  {element.Artikel} {element.word} = {element.Meaning}
-                </div>
+                <BasicWord
+                  key={element.word}
+                  word={element.word}
+                  Plural={element.Plural}
+                  Meaning={element.Meaning}
+                  Artikel={element.Artikel}
+                />
               );
             })}
           </div>
@@ -28,9 +33,13 @@ export default function EndGameScreen() {
           <div>
             {state.arrayOfWordsRightAnswer.map((element) => {
               return (
-                <div key={element.word}>
-                  {element.Artikel} {element.word} = {element.Meaning}
-                </div>
+                <BasicWord
+                  key={element.word}
+                  word={element.word}
+                  Plural={element.Plural}
+                  Meaning={element.Meaning}
+                  Artikel={element.Artikel}
+                />
               );
             })}
           </div>

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import data from "../German-words-data.json";
+import BasicWord from "./Common/BasicWord";
 
 export default function AllWords() {
   const [smallDataSet, setSmallDataSet] = useState<basicWord[]>([]);
 
-  const myFunc = () => {
-    let foo = [];
+  const getListOfWOrds = () => {
+    let arrayOfWords = [];
     for (let i = 0; i < 25; i++) {
-      console.log("data[i]", data[i]);
-      foo.push(data[i]);
+      arrayOfWords.push(data[i]);
     }
-    setSmallDataSet(foo);
+    setSmallDataSet(arrayOfWords);
   };
 
   useEffect(() => {
-    myFunc();
+    getListOfWOrds();
   }, []);
 
   function pickColorBasedOnArtikel(artikel: string) {
@@ -32,20 +32,16 @@ export default function AllWords() {
   return (
     <div>
       <h1 className="m-5 flex justify-center">AllWords</h1>
-      <div className="mx-10 grid grid-cols-5  gap-4">
+      <div className="mx-3 grid grid-cols-2 gap-3">
         {smallDataSet.map((element) => {
-          let elementColor = pickColorBasedOnArtikel(element.Artikel);
-          console.log("elementColor", elementColor);
-
           return (
-            <div
-              className={`flex justify-center border-4 hover:font-bold  ${elementColor} `}
-              key={element.Meaning}
-            >
-              <p>
-                {`The ${element.Meaning} : ${element.Artikel} ${element.word}`}{" "}
-              </p>
-            </div>
+            <BasicWord
+              key={element.word}
+              word={element.word}
+              Plural={element.Plural}
+              Meaning={element.Meaning}
+              Artikel={element.Artikel}
+            />
           );
         })}
       </div>
