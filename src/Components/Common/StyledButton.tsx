@@ -1,13 +1,12 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-export default function BasicWord({
-  word,
-  Artikel,
-  Plural,
-  Meaning,
-}: basicWord) {
+type QuestionButtonTypes = {
+  children?: React.ReactNode;
+  Artikel: string;
+};
+
+export function QuestionButton({ Artikel, children }: QuestionButtonTypes) {
   let artikelStyle;
-
   switch (Artikel) {
     case "Der":
       artikelStyle =
@@ -26,11 +25,10 @@ export default function BasicWord({
   }
 
   return (
-    <div
-      className={`m-1  flex justify-center rounded-md border-2 p-2 shadow-xl ${artikelStyle} `}
-      key={Meaning}
+    <button
+      className={`m-3 w-24 transform rounded border-2 text-center shadow-lg outline-none transition-transform  focus:ring-4 active:scale-50 ${artikelStyle}`}
     >
-      <p>{`The ${Meaning} : ${Artikel} ${word}`} </p>
-    </div>
+      {children}
+    </button>
   );
 }

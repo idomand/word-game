@@ -63,8 +63,6 @@ export default function GameBoard() {
               value="start"
             />
           </form>
-
-          {/* <button onClick={startGameFunc}>start game</button> */}
         </div>
       )}
 

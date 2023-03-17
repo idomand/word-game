@@ -94,10 +94,10 @@ export default function GameReducer(
     state.arrayOfWords = [];
     state.arrayOfWordsRightAnswer = [];
     state.arrayOfWordsWrongAnswer = [];
-    (state.score = 0),
-      (state.userName = "ido"),
-      (state.indexOfWordInArray = 0),
-      (state.indexOfWordInAllData = 0);
+    state.score = 0;
+    state.userName = "ido";
+    state.indexOfWordInArray = 0;
+    state.indexOfWordInAllData = 0;
 
     return { ...state };
   }
