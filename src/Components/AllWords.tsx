@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import data from "../German-words-data.json";
+import { H1 } from "./Common/StyledText";
 import BasicWord from "./Common/StyledWord";
 
 export default function AllWords() {
@@ -19,8 +20,8 @@ export default function AllWords() {
 
   return (
     <div>
-      <h1 className="m-5 flex justify-center">AllWords</h1>
-      <div className="mx-3 grid grid-cols-2 gap-3">
+      <H1>All Words</H1>
+      <div className="mx-3 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {smallDataSet.map((element) => {
           return (
             <BasicWord

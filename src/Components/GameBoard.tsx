@@ -39,14 +39,16 @@ export default function GameBoard() {
   return (
     <div className="flex w-full flex-col items-center justify-center ">
       {state.isGameStated == false && state.isGameEnded == false && (
-        <div>
+        <div className="mt-5">
           <form
+            className="flex flex-col"
             onSubmit={() => {
               startGameFunc(numberOfWordsInGame);
             }}
           >
             <label htmlFor="numberOfWords">
               <input
+                className="rounded text-center "
                 id="numberOfWords"
                 type="number"
                 value={numberOfWordsInGame}
@@ -55,7 +57,11 @@ export default function GameBoard() {
                 }}
               />
             </label>
-            <input type="submit" />
+            <input
+              className="mt-1 cursor-pointer border p-2 font-bold"
+              type="submit"
+              value="start"
+            />
           </form>
 
           {/* <button onClick={startGameFunc}>start game</button> */}

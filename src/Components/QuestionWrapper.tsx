@@ -8,12 +8,14 @@ export default function QuestionWrapper({
 }: basicWord) {
   return (
     <div className="rounded-t-lg border-t-2 border-white bg-white">
-      <H2>
-        what's the artikel of the word:{" "}
-        <span className="font-bold underline">{word}</span> ?
-      </H2>
-      <p>the meaning of the word is {Meaning}</p>
-      <p>the Artikel is {Artikel} </p>
+      <H2>what's the artikel of this word: </H2>
+      <div className=" text-center font-bold">
+        <span className="m-1 rounded bg-red-200  p-1">{word}</span>
+      </div>
+      <div className="text-center">
+        <p>the meaning of the word is {Meaning}</p>
+        <p className="text-sm">Hint: the Artikel is {Artikel} </p>
+      </div>
     </div>
   );
 }

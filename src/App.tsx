@@ -9,7 +9,7 @@ function App() {
   return (
     <GameContextComponent>
       <BrowserRouter>
-        <div className="bg-gradient-to-r from-cyan-500 to-indigo-500">
+        <div className="h-screen bg-gradient-to-r from-cyan-500 to-indigo-500	">
           <Header />
           <Routes>
             <Route path="/allWords" element={<AllWords />} />

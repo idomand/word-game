@@ -28,7 +28,7 @@ export default function BasicWord({
   return (
     <div>
       <div
-        className={`m-1 flex justify-center rounded-md border-2 p-2 ${artikelStyle} `}
+        className={`m-1  flex justify-center rounded-md border-2 p-2 shadow-xl ${artikelStyle} `}
         key={Meaning}
       >
         <p>{`The ${Meaning} : ${Artikel} ${word}`} </p>
