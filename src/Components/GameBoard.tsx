@@ -21,14 +21,6 @@ export default function GameBoard() {
     });
   }
 
-  // useEffect(() => {
-  //   const randomStartingIndex = Math.floor(Math.random() * 1000);
-  //   dispatch({
-  //     type: "get-array-of-words",
-  //     payload: { numberOfWords: 6, startingIndex: randomStartingIndex },
-  //   });
-  // }, []);
-
   const checkUserAnswer = (userAnswer: "Der" | "Die" | "Das") => {
     let isCorrect = userAnswer === state.wordObject.Artikel;
     if (state.arrayOfWords.length === state.indexOfWordInArray + 1) {
@@ -45,7 +37,7 @@ export default function GameBoard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  border-2 border-slate-700  p-2">
+    <div className="flex w-full flex-col items-center justify-center ">
       {/* <div className="mb-10"><StateDashboard /></div> */}
 
       {state.isGameStated == false && state.isGameEnded == false && (
@@ -73,7 +65,7 @@ export default function GameBoard() {
       )}
 
       {state.isGameStated == true && state.isGameEnded == false && (
-        <section className="border-4">
+        <section className="">
           <GameStateWrapper />
           <QuestionWrapper
             Meaning={state.wordObject.Meaning}
@@ -81,7 +73,7 @@ export default function GameBoard() {
             Plural={state.wordObject.Plural}
             word={state.wordObject.word}
           />
-          <div className="border text-2xl font-bold"></div>
+
           <ButtonWrapper checkUserAnswer={checkUserAnswer} />
         </section>
       )}

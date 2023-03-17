@@ -1,19 +1,24 @@
 import { useGameContext } from "../lib/GameContextComponent";
-import BasicWord from "./Common/BasicWord";
+import { H1, H2 } from "./Common/StyledText";
+import BasicWord from "./Common/StyledWord";
 
 export default function EndGameScreen() {
   const { state, dispatch } = useGameContext();
 
   return (
-    <div>
-      <h1 className="mb-3 text-center text-2xl font-bold">End Game Screen</h1>
-      <h2 className="text-1xl mb-3 text-center font-bold">
+    <div className="w-full ">
+      {/* <h1 className="mb-3 text-center text-2xl font-bold">End Game Screen</h1> */}
+      <H1>End Game Screen</H1>
+      {/* <h2 className="text-1xl mb-3 text-center font-bold">
         your score is {state.score} out of {state.arrayOfWords.length}
-      </h2>
+      </h2> */}
+      <H2>
+        your score is {state.score} out of {state.arrayOfWords.length}
+      </H2>
 
-      <div className="flex">
-        <div className="mr-10 border-red-500 bg-red-200 p-5">
-          <h1 className="mb-2 font-bold underline">Right Answers</h1>
+      <div className="flex w-full justify-center rounded-lg bg-gradient-to-r from-green-300 to-red-400 py-3">
+        <div className="border-r border-dashed">
+          <H2>Right Answers</H2>
           <div>
             {state.arrayOfWordsRightAnswer.map((element) => {
               return (
@@ -28,10 +33,10 @@ export default function EndGameScreen() {
             })}
           </div>
         </div>
-        <div className="border-green-500 bg-green-200 p-5">
-          <h1 className="mb-2 font-bold underline">Wrong Answers</h1>
+        <div>
+          <H2>Wrong Answers</H2>
           <div>
-            {state.arrayOfWordsRightAnswer.map((element) => {
+            {state.arrayOfWordsWrongAnswer.map((element) => {
               return (
                 <BasicWord
                   key={element.word}

@@ -4,7 +4,7 @@ type ButtonWrapperProps = {
 
 export default function ButtonWrapper({ checkUserAnswer }: ButtonWrapperProps) {
   return (
-    <div className="">
+    <div className="bg-white">
       <button
         onClick={() => {
           checkUserAnswer("Der");

@@ -64,16 +64,26 @@ export default function GameReducer(
     let { isAnswerCorrect } = action.payload;
     if (isAnswerCorrect) {
       state.score = state.score + 1;
-      console.log("arrayOfWordsRightAnswer", state.arrayOfWordsRightAnswer);
       state.arrayOfWordsRightAnswer.push(state.wordObject);
     } else {
-      console.log("arrayOfWordsWrongAnswer", state.arrayOfWordsWrongAnswer);
       state.arrayOfWordsWrongAnswer.push(state.wordObject);
     }
+    console.log("arrayOfWordsRightAnswer", state.arrayOfWordsRightAnswer);
+    console.log("arrayOfWordsWrongAnswer", state.arrayOfWordsWrongAnswer);
+
     const wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
     state.indexOfWordInArray = state.indexOfWordInArray + 1;
     return { ...state, wordObject };
   } else if (action.type === "check-last-question") {
+    let { isAnswerCorrect } = action.payload;
+    if (isAnswerCorrect) {
+      state.score = state.score + 1;
+      state.arrayOfWordsRightAnswer.push(state.wordObject);
+    } else {
+      state.arrayOfWordsWrongAnswer.push(state.wordObject);
+    }
+    console.log("arrayOfWordsRightAnswer", state.arrayOfWordsRightAnswer);
+    console.log("arrayOfWordsWrongAnswer", state.arrayOfWordsWrongAnswer);
     state.isGameEnded = true;
     state.isGameStated = false;
 

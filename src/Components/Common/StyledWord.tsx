@@ -6,23 +6,21 @@ export default function BasicWord({
   Plural,
   Meaning,
 }: basicWord) {
-  let personalStyle;
+  let artikelStyle;
 
   switch (Artikel) {
     case "Der":
-      personalStyle =
+      artikelStyle =
         "border-blue-200 bg-blue-100 hover:bg-blue-300 border-blue-600";
       break;
-
     case "Das":
-      personalStyle =
+      artikelStyle =
         "border-green-200 bg-green-100 hover:bg-green-300 border-green-600";
       break;
     case "Die":
-      personalStyle =
+      artikelStyle =
         "border-red-200 bg-red-100 hover:bg-red-300 border-red-600";
       break;
-
     default:
       break;
   }
@@ -30,7 +28,7 @@ export default function BasicWord({
   return (
     <div>
       <div
-        className={`flex justify-center rounded-md border-2 py-1 hover:font-bold ${personalStyle} `}
+        className={`m-1 flex justify-center rounded-md border-2 p-2 ${artikelStyle} `}
         key={Meaning}
       >
         <p>{`The ${Meaning} : ${Artikel} ${word}`} </p>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="flex justify-center border bg-orange-400">
+    <header className="flex justify-center ">
       <Link
         to="/"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline "

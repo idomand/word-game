@@ -9,12 +9,14 @@ function App() {
   return (
     <GameContextComponent>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/allWords" element={<AllWords />} />
-          <Route path="/score-board" element={<ScoreBoard />} />
-          <Route path="/" element={<GameBoard />} />
-        </Routes>
+        <div className="bg-gradient-to-r from-cyan-500 to-indigo-500">
+          <Header />
+          <Routes>
+            <Route path="/allWords" element={<AllWords />} />
+            <Route path="/score-board" element={<ScoreBoard />} />
+            <Route path="/" element={<GameBoard />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </GameContextComponent>
   );

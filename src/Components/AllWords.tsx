@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import data from "../German-words-data.json";
-import BasicWord from "./Common/BasicWord";
+import BasicWord from "./Common/StyledWord";
 
 export default function AllWords() {
   const [smallDataSet, setSmallDataSet] = useState<basicWord[]>([]);
@@ -16,18 +16,6 @@ export default function AllWords() {
   useEffect(() => {
     getListOfWOrds();
   }, []);
-
-  function pickColorBasedOnArtikel(artikel: string) {
-    if (artikel === "Der") {
-      return `border-blue-200 bg-blue-100 hover:bg-blue-300 border-blue-600`;
-    }
-    if (artikel === "Das") {
-      return `border-green-200 bg-green-100 hover:bg-green-300 border-green-600`;
-    }
-    if (artikel === "Die") {
-      return `border-red-200 bg-red-100 hover:bg-red-300 border-red-600`;
-    }
-  }
 
   return (
     <div>

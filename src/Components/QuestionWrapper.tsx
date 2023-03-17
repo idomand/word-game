@@ -1,3 +1,5 @@
+import { H2 } from "./Common/StyledText";
+
 export default function QuestionWrapper({
   word,
   Artikel,
@@ -5,11 +7,11 @@ export default function QuestionWrapper({
   Plural,
 }: basicWord) {
   return (
-    <div className="border-2">
-      <h2 className="text-center">
+    <div className="rounded-t-lg border-t-2 border-white bg-white">
+      <H2>
         what's the artikel of the word:{" "}
         <span className="font-bold underline">{word}</span> ?
-      </h2>
+      </H2>
       <p>the meaning of the word is {Meaning}</p>
       <p>the Artikel is {Artikel} </p>
     </div>
