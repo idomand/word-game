@@ -1,4 +1,5 @@
-import data from "../German-words-data.json";
+import { getArrayOfWordsFromFirebase } from "../Firebase/FirestoreCrud";
+// import data from "../German-words-data.json";
 
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 
@@ -48,13 +49,15 @@ export default function GameReducer(
     return { ...state, score };
   } else if (action.type === "get-array-of-words") {
     const { numberOfWords, startingIndex } = action.payload;
-    state.indexOfWordInAllData = startingIndex;
-    const arrayOfWords = [];
-    for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
-      arrayOfWords.push(data[i]);
-    }
-    state.wordObject = arrayOfWords[0];
-    return { ...state, arrayOfWords };
+
+    // const foo = getArrayOfWordsFromFirebase(numberOfWords);
+    // state.indexOfWordInAllData = startingIndex;
+    // const arrayOfWords = [];
+    // for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
+    // arrayOfWords.push(data[i]);
+    // }
+    // state.wordObject = arrayOfWords[0];
+    // return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
     let { isAnswerCorrect, score } = action.payload;
     if (isAnswerCorrect) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import data from "../German-words-data.json";
+// import data from "../German-words-data.json";
 
 export default function AllWords() {
   const [smallDataSet, setSmallDataSet] = useState<basicWord[]>([]);

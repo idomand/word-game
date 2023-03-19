@@ -3,6 +3,7 @@ import ButtonWrapper from "./ButtonWrapper";
 import QuestionWrapper from "./QuestionWrapper";
 import { useGameContext } from "../lib/GameContextComponent";
 import StateDashboard from "./StateDashboard";
+// import FirebaseTest from "./FirebaseTest";
 
 export default function GameBoard() {
   const { state, dispatch } = useGameContext();
@@ -32,6 +33,7 @@ export default function GameBoard() {
 
   return (
     <div className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
+      {/* <FirebaseTest /> */}
       <StateDashboard />
       <QuestionWrapper
         Meaning={state.wordObject.Meaning}

@@ -9,6 +9,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../Firebase/firebase-config";
 
+// import data from "../German-words-data.json";
+
 export default function FirebaseTest() {
   const [firebaseData, setFirebaseData] = useState<any>([]);
   const [name, setName] = useState("");
