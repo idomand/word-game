@@ -9,9 +9,11 @@ type GlobalState = {
   wordObject: basicWord;
   indexOfWordInAllData: number;
   indexOfWordInArray: number;
-  arrayOfWords: basicWord[];
   score: number;
   userName: string;
   isGameStated: boolean;
   isGameEnded: boolean;
+  arrayOfWords: basicWord[];
+  arrayOfWordsWrongAnswer: basicWord[];
+  arrayOfWordsRightAnswer: basicWord[];
 };

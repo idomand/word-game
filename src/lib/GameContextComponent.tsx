@@ -17,6 +17,8 @@ const initialState = {
   arrayOfWords: [],
   isGameStated: false,
   isGameEnded: false,
+  arrayOfWordsWrongAnswer: [],
+  arrayOfWordsRightAnswer: [],
 };
 
 type GameContextType = {

@@ -14,13 +14,16 @@ export default function StateDashboard({}: Props) {
           <div>score: {state.score}</div>
           <div>indexOfWordInAllData: {state.indexOfWordInAllData}</div>
           <div>indexOfWordInArray: {state.indexOfWordInArray}</div>
-
           <div>
             word: {state.wordObject.Meaning}= {state.wordObject.word}
           </div>
+          <div>did game start: {state.isGameStated ? "true" : "false"}</div>
+          <div>did game end: {state.isGameEnded ? "true" : "false"}</div>
         </div>
         <div>
-          <span className="underline"> array of five words: </span>
+          <span className="underline">
+            array of {state.arrayOfWords.length} words:
+          </span>
           {state.arrayOfWords.map((element) => {
             return <span key={element.word}>{element.word}, </span>;
           })}
