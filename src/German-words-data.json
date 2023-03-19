@@ -4067,12 +4067,7 @@
     "Artikel": "Die",
     "Plural": "Die Masken"
   },
-  {
-    "word": "Kunden",
-    "Meaning": "Customer",
-    "Artikel": "Dem",
-    "Plural": "Die Kunden"
-  },
+
   {
     "word": "Geburt",
     "Meaning": "Birth",
@@ -5814,12 +5809,6 @@
     "Meaning": "Success",
     "Artikel": "Der",
     "Plural": "Erfolge"
-  },
-  {
-    "word": "Vorabend",
-    "Meaning": "Eve",
-    "Artikel": "Dem",
-    "Plural": "Die Eves"
   },
   {
     "word": "Kabel",

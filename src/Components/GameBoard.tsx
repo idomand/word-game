@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ButtonWrapper from "./ButtonWrapper";
 import QuestionWrapper from "./QuestionWrapper";
 import { useGameContext } from "../lib/GameContextComponent";
 import StateDashboard from "./StateDashboard";
-// import EndGameScreen from "./EndGameScreen";
-// import GameStateWrapper from "./GameStateWrapper";
-// import FirebaseTest from "./FirebaseTest";
+import EndGameScreen from "./EndGameScreen";
+import GameStateWrapper from "./GameStateWrapper";
 
 export default function GameBoard() {
   const [numberOfWordsInGame, setNumberOfWordsInGame] = useState(3);
@@ -38,16 +37,52 @@ export default function GameBoard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  border-2 border-slate-700  p-4">
-      {/* <StateDashboard />
-      <QuestionWrapper
-        Meaning={state.wordObject.Meaning}
-        Artikel={state.wordObject.Artikel}
-        Plural={state.wordObject.Plural}
-        word={state.wordObject.word}
-      />
-      <div className="border text-2xl font-bold"></div>
-      <ButtonWrapper checkUserAnswer={checkUserAnswer} /> */}
+    <div className="flex w-full flex-col items-center justify-center ">
+      {state.isGameStated == false && state.isGameEnded == false && (
+        <div className="mt-5">
+          <form
+            className="flex flex-col"
+            onSubmit={() => {
+              startGameFunc(numberOfWordsInGame);
+            }}
+          >
+            <label htmlFor="numberOfWords">
+              <input
+                className="rounded text-center "
+                id="numberOfWords"
+                type="number"
+                value={numberOfWordsInGame}
+                onChange={(e) => {
+                  setNumberOfWordsInGame(e.target.valueAsNumber);
+                }}
+              />
+            </label>
+            <input
+              className="mt-1 cursor-pointer border p-2 font-bold"
+              type="submit"
+              value="start"
+            />
+          </form>
+
+          {/* <button onClick={startGameFunc}>start game</button> */}
+        </div>
+      )}
+
+      {state.isGameStated == true && state.isGameEnded == false && (
+        <section className="">
+          <GameStateWrapper />
+          <QuestionWrapper
+            Meaning={state.wordObject.Meaning}
+            Artikel={state.wordObject.Artikel}
+            Plural={state.wordObject.Plural}
+            word={state.wordObject.word}
+          />
+
+          <ButtonWrapper checkUserAnswer={checkUserAnswer} />
+        </section>
+      )}
+
+      {state.isGameStated == false && state.isGameEnded && <EndGameScreen />}
     </div>
   );
 }

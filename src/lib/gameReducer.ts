@@ -58,18 +58,19 @@ export default function GameReducer(
     // state.indexOfWordInAllData = startingIndex;
     // const arrayOfWords = [];
     // for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
-    // arrayOfWords.push(data[i]);
-    // }
-    // state.wordObject = arrayOfWords[0];
-    // return { ...state, arrayOfWords };
-    // state.indexOfWordInAllData = startingIndex;
-    // const arrayOfWords = [];
-    // for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
     //   arrayOfWords.push(data[i]);
     // }
     // state.wordObject = arrayOfWords[0];
-    // state.isGameStated = true;
     // return { ...state, arrayOfWords };
+
+    state.indexOfWordInAllData = startingIndex;
+    const arrayOfWords = [];
+    for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
+      arrayOfWords.push(data[i]);
+    }
+    state.wordObject = arrayOfWords[0];
+    state.isGameStated = true;
+    return { ...state, arrayOfWords };
   } else if (action.type === "check-question") {
     let { isAnswerCorrect } = action.payload;
     if (isAnswerCorrect) {
