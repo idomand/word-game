@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
-import data from "../German-words-data.json";
+// import data from "../German-words-data.json";
 import { H1 } from "./Common/StyledText";
 import BasicWord from "./Common/StyledWord";
 
+import { getArrayOfWordsFromFirebase } from "../Firebase/FirestoreCrud";
+import { useGameContext } from "../lib/GameContextComponent";
+
 export default function AllWords() {
   const [smallDataSet, setSmallDataSet] = useState<basicWord[]>([]);
+  const { state, dispatch } = useGameContext();
 
-  const getListOfWOrds = () => {
-    let arrayOfWords = [];
-    for (let i = 0; i < 25; i++) {
-      arrayOfWords.push(data[i]);
-    }
-    setSmallDataSet(arrayOfWords);
-  };
+  async function getListOfWOrds() {
+    dispatch({
+      type: "get-array-of-words",
+      payload: { numberOfWords: 15, startingIndex: 5 },
+    });
+
+    // let response = await getArrayOfWordsFromFirebase(15);
+    // if (response) {
+    //   setSmallDataSet(response);
+    // }
+  }
 
   useEffect(() => {
     getListOfWOrds();

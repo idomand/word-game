@@ -52,7 +52,10 @@ export default function GameReducer(
     const { score } = action.payload;
     return { ...state, score };
   } else if (action.type === "get-array-of-words") {
-    const { numberOfWords, startingIndex } = action.payload;
+    // let response = await getArrayOfWordsFromFirebase(15);
+    // if (response) {
+    //   setSmallDataSet(response);
+    // }
 
     // const foo = getArrayOfWordsFromFirebase(numberOfWords);
     // state.indexOfWordInAllData = startingIndex;
@@ -63,6 +66,7 @@ export default function GameReducer(
     // state.wordObject = arrayOfWords[0];
     // return { ...state, arrayOfWords };
 
+    const { numberOfWords, startingIndex } = action.payload;
     state.indexOfWordInAllData = startingIndex;
     const arrayOfWords = [];
     for (let i = startingIndex; i < startingIndex + numberOfWords; i++) {
