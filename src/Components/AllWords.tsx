@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
-// import data from "../German-words-data.json";
 import { H1 } from "./Common/StyledText";
 import BasicWord from "./Common/StyledWord";
 
-import { getArrayOfWordsFromFirebase } from "../Firebase/FirestoreCrud";
+// import { getArrayOfWordsFromFirebase } from "../Firebase/FirestoreCrud";
 import { useGameContext } from "../lib/GameContextComponent";
 
 export default function AllWords() {
-  const [smallDataSet, setSmallDataSet] = useState<basicWord[]>([]);
   const { state, dispatch } = useGameContext();
-
+  const randomStartingIndex = Math.floor(Math.random() * 1000);
   async function getListOfWOrds() {
     dispatch({
       type: "get-array-of-words",
-      payload: { numberOfWords: 15, startingIndex: 5 },
+      payload: { numberOfWords: 30, startingIndex: randomStartingIndex },
     });
-
-    // let response = await getArrayOfWordsFromFirebase(15);
-    // if (response) {
-    //   setSmallDataSet(response);
-    // }
   }
 
   useEffect(() => {
@@ -30,7 +23,7 @@ export default function AllWords() {
     <div>
       <H1>All Words</H1>
       <div className="mx-3 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {smallDataSet.map((element) => {
+        {state.arrayOfWords.map((element) => {
           return (
             <BasicWord
               key={element.word}
