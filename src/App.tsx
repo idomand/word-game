@@ -13,7 +13,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/allWords" element={<AllWords />} />
-            <Route path="/score-board" element={<ScoreBoard />} />
+            {/* <Route path="/score-board" element={<ScoreBoard />} /> */}
             <Route path="/" element={<GameBoard />} />
           </Routes>
         </div>
