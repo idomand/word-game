@@ -17,13 +17,17 @@ const initialState: GlobalState = {
   arrayOfWordsRightAnswer: [],
 };
 
-// const GameReducer = () => {};
-
 export const GameDataSlice = createSlice({
   name: "gameData",
   initialState: initialState,
   reducers: {
-    GetArrayOfWord: (state, action) => {
+    GetArrayOfWord: (
+      state,
+      action: {
+        type: string;
+        payload: { numberOfWords: number; startingIndex: number };
+      }
+    ) => {
       const { numberOfWords, startingIndex } = action.payload;
       state.indexOfWordInAllData = startingIndex;
       const arrayOfWords = [];
@@ -37,6 +41,5 @@ export const GameDataSlice = createSlice({
   },
 });
 
-// export const {} = GameDataSlice.actions;
-export const GameReducer = GameDataSlice.reducer;
-export default GameDataSlice;
+export const { GetArrayOfWord } = GameDataSlice.actions;
+export default GameDataSlice.reducer;
