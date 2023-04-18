@@ -38,8 +38,55 @@ export const GameDataSlice = createSlice({
       state.isGameStated = true;
       state.arrayOfWords = arrayOfWords;
     },
+    CheckQuestion: (
+      state,
+      action: {
+        type: string;
+        payload: { isAnswerCorrect: boolean };
+      }
+    ) => {
+      console.log("poop");
+      let { isAnswerCorrect } = action.payload;
+      if (isAnswerCorrect) {
+        state.score += 1;
+        state.arrayOfWordsRightAnswer.push(state.wordObject);
+      } else {
+        state.arrayOfWordsWrongAnswer.push(state.wordObject);
+      }
+      state.wordObject = state.arrayOfWords[state.indexOfWordInArray + 1];
+      state.indexOfWordInArray = state.indexOfWordInArray + 1;
+    },
+    CheckLastQuestion: (
+      state,
+      action: {
+        type: string;
+        payload: { isAnswerCorrect: boolean };
+      }
+    ) => {
+      let { isAnswerCorrect } = action.payload;
+      if (isAnswerCorrect) {
+        state.score = state.score + 1;
+        state.arrayOfWordsRightAnswer.push(state.wordObject);
+      } else {
+        state.arrayOfWordsWrongAnswer.push(state.wordObject);
+      }
+      state.isGameEnded = true;
+      state.isGameStated = false;
+    },
+    RestartGame: (state) => {
+      state.isGameEnded = false;
+      state.isGameStated = false;
+      state.arrayOfWords = [];
+      state.arrayOfWordsRightAnswer = [];
+      state.arrayOfWordsWrongAnswer = [];
+      state.score = 0;
+      state.userName = "ido";
+      state.indexOfWordInArray = 0;
+      state.indexOfWordInAllData = 0;
+    },
   },
 });
 
-export const { GetArrayOfWord } = GameDataSlice.actions;
+export const { GetArrayOfWord, CheckLastQuestion, CheckQuestion, RestartGame } =
+  GameDataSlice.actions;
 export default GameDataSlice.reducer;
