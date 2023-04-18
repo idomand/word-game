@@ -1,14 +1,19 @@
 import React from "react";
-import { useGameContext } from "../lib/GameContextComponent";
+import { useAppSelector } from "../Redux/ReduxHooks";
 
 export default function GameStateWrapper() {
-  const { state, dispatch } = useGameContext();
+  const score = useAppSelector((state) => state.score);
+
+  const arrayOfWords = useAppSelector((state) => state.arrayOfWords);
+  const indexOfWordInArray = useAppSelector(
+    (state) => state.indexOfWordInArray
+  );
 
   return (
     <div className="flex justify-around">
-      <div>score: {state.score}</div>
+      <div>score: {score}</div>
       <div>
-        {state.indexOfWordInArray + 1}/{state.arrayOfWords.length}
+        {indexOfWordInArray + 1}/{arrayOfWords.length}
       </div>
     </div>
   );
