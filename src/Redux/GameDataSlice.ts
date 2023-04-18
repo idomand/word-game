@@ -45,7 +45,6 @@ export const GameDataSlice = createSlice({
         payload: { isAnswerCorrect: boolean };
       }
     ) => {
-      console.log("poop");
       let { isAnswerCorrect } = action.payload;
       if (isAnswerCorrect) {
         state.score += 1;

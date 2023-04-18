@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useGameContext } from "../lib/GameContextComponent";
-
+import { useAppDispatch } from "../Redux/ReduxHooks";
+import { RestartGame } from "../Redux/GameDataSlice";
 export default function Header() {
-  const { state, dispatch } = useGameContext();
+  const dispatch = useAppDispatch();
 
   return (
     <header className="flex justify-center ">
@@ -10,9 +10,7 @@ export default function Header() {
         to="/"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline "
         onClick={() => {
-          dispatch({
-            type: "restart-game",
-          });
+          dispatch(RestartGame());
         }}
       >
         Play

@@ -1,7 +1,5 @@
-// import { useGameContext } from "../lib/GameContextComponent";
 import { H1, H2 } from "./Common/StyledText";
 import BasicWord from "./Common/StyledWord";
-
 import { RestartGame } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 
