@@ -6,11 +6,12 @@ type basicWord = {
 };
 
 type GlobalState = {
+  userName: string;
+  user: any;
   wordObject: basicWord;
   indexOfWordInAllData: number;
   indexOfWordInArray: number;
   score: number;
-  userName: string;
   isGameStated: boolean;
   isGameEnded: boolean;
   arrayOfWords: basicWord[];

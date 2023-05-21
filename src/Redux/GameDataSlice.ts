@@ -7,6 +7,7 @@ export const firstWord = data[randomStartingIndex];
 const initialState: GlobalState = {
   wordObject: firstWord,
   score: 0,
+  user: "anonymous",
   userName: "ido",
   indexOfWordInArray: 0,
   indexOfWordInAllData: 0,
@@ -21,6 +22,16 @@ export const GameDataSlice = createSlice({
   name: "gameData",
   initialState: initialState,
   reducers: {
+    LoginUser: (
+      state,
+      action: {
+        type: string;
+        payload: { user: any };
+      }
+    ) => {
+      state.user = action.payload.user;
+    },
+
     GetArrayOfWord: (
       state,
       action: {
@@ -86,6 +97,11 @@ export const GameDataSlice = createSlice({
   },
 });
 
-export const { GetArrayOfWord, CheckLastQuestion, CheckQuestion, RestartGame } =
-  GameDataSlice.actions;
+export const {
+  GetArrayOfWord,
+  CheckLastQuestion,
+  CheckQuestion,
+  RestartGame,
+  LoginUser,
+} = GameDataSlice.actions;
 export default GameDataSlice.reducer;
