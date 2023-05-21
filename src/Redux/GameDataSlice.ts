@@ -100,7 +100,6 @@ export const GameDataSlice = createSlice({
       state.arrayOfWordsRightAnswer = [];
       state.arrayOfWordsWrongAnswer = [];
       state.score = 0;
-      state.userName = null;
       state.indexOfWordInArray = 0;
       state.indexOfWordInAllData = 0;
     },
