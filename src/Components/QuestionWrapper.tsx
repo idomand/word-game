@@ -1,11 +1,11 @@
 import { H2 } from "./Common/StyledText";
-
+import { BasicWordType } from "../global";
 export default function QuestionWrapper({
   word,
   Artikel,
   Meaning,
   Plural,
-}: basicWord) {
+}: BasicWordType) {
   return (
     <div className="rounded-t-lg border-t-2 border-white bg-white">
       <H2>what's the artikel of this word: </H2>

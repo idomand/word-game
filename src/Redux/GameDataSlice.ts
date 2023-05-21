@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
 import { User } from "firebase/auth";
-import { GlobalState } from "../global";
+import { GlobalStateType } from "../global";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
 
-const initialState: GlobalState = {
+const initialState: GlobalStateType = {
   wordObject: firstWord,
   score: 0,
   // currentUser: null,

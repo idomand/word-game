@@ -1,11 +1,11 @@
 import React from "react";
-
+import { BasicWordType } from "../../global";
 export default function BasicWord({
   word,
   Artikel,
   Plural,
   Meaning,
-}: basicWord) {
+}: BasicWordType) {
   let artikelStyle;
 
   switch (Artikel) {

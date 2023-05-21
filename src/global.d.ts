@@ -1,13 +1,13 @@
 import { User } from "firebase/auth";
 
-export type basicWord = {
+export type BasicWordType = {
   word: string;
   Plural: string;
   Meaning: string;
   Artikel: string;
 };
 
-export type GlobalState = {
+export type GlobalStateType = {
   userName: string | null;
   userId: string | null;
   userEmail: string | null;
