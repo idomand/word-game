@@ -13,7 +13,7 @@ export default function LoginPage({}: Props) {
   const dispatch = useAppDispatch();
   async function signInWithGooglePopup() {
     try {
-      const response = await signInWithPopup(Auth, googleProvider);
+      await signInWithPopup(Auth, googleProvider);
       console.log("Auth.currentUser", Auth.currentUser);
       if (Auth.currentUser) {
         dispatch(
@@ -30,7 +30,7 @@ export default function LoginPage({}: Props) {
 
   async function logOutFunc() {
     try {
-      const response = await signOut(Auth);
+      await signOut(Auth);
       dispatch(
         LoginUser({
           userId: null,
