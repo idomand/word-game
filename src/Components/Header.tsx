@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { RestartGame } from "../Redux/GameDataSlice";
+import AuthButton from "./AuthButton";
 export default function Header() {
   const dispatch = useAppDispatch();
   const userName = useAppSelector((state) => state.userName);
@@ -13,10 +14,18 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-center ">
-      <div>hello {userToShow}</div>
-      <Link
+    <header className="flex justify-center border-b-2 pb-2 ">
+      <div className="justify-self-start bg-slate-200 p-4 ">
+        <h2 className="text-xl font-bold">Hi {userToShow}</h2>
+      </div>
+      {/* <Link
         to="/"
+        className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
+      >
+        home
+      </Link> */}
+      <Link
+        to="/GameBoard"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline "
         onClick={() => {
           dispatch(RestartGame());
@@ -31,17 +40,12 @@ export default function Header() {
         Score board
       </Link> */}
       <Link
-        to="/login-page"
-        className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
-      >
-        Login Page
-      </Link>{" "}
-      <Link
         to="/allWords"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
       >
         List of All Words
-      </Link>
+      </Link>{" "}
+      <AuthButton />
     </header>
   );
 }
