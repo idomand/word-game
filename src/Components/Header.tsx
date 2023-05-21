@@ -3,13 +3,13 @@ import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { RestartGame } from "../Redux/GameDataSlice";
 export default function Header() {
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.user);
+  const userName = useAppSelector((state) => state.userName);
   let userToShow;
 
-  if (typeof user === "string") {
-    userToShow = user;
+  if (userName) {
+    userToShow = userName;
   } else {
-    userToShow = user.displayName;
+    userToShow = "anonymous";
   }
 
   return (

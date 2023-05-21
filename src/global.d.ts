@@ -1,13 +1,17 @@
-type basicWord = {
+import { User } from "firebase/auth";
+
+export type basicWord = {
   word: string;
   Plural: string;
   Meaning: string;
   Artikel: string;
 };
 
-type GlobalState = {
-  userName: string;
-  user: any;
+export type GlobalState = {
+  userName: string | null;
+  userId: string | null;
+  userEmail: string | null;
+  // currentUser: null | User;
   wordObject: basicWord;
   indexOfWordInAllData: number;
   indexOfWordInArray: number;
