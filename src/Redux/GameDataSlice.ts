@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
-
+import { User } from "firebase/auth";
+import { GlobalState } from "../global";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
 
 const initialState: GlobalState = {
   wordObject: firstWord,
   score: 0,
+  // currentUser: null,
   userName: "ido",
+  userId: null,
+  userEmail: null,
   indexOfWordInArray: 0,
   indexOfWordInAllData: 0,
   arrayOfWords: [],
@@ -21,6 +25,23 @@ export const GameDataSlice = createSlice({
   name: "gameData",
   initialState: initialState,
   reducers: {
+    LoginUser: (
+      state,
+      action: {
+        type: string;
+        payload: { userName: null | string; userId: null | string };
+      }
+    ) => {
+      if (action.payload.userName) {
+        // state.currentUser = action.payload.currentUser;
+        state.userName = action.payload.userName;
+        state.userId = action.payload.userId;
+      } else {
+        state.userName = null;
+        state.userId = null;
+      }
+    },
+
     GetArrayOfWord: (
       state,
       action: {
@@ -79,13 +100,18 @@ export const GameDataSlice = createSlice({
       state.arrayOfWordsRightAnswer = [];
       state.arrayOfWordsWrongAnswer = [];
       state.score = 0;
-      state.userName = "ido";
+      state.userName = null;
       state.indexOfWordInArray = 0;
       state.indexOfWordInAllData = 0;
     },
   },
 });
 
-export const { GetArrayOfWord, CheckLastQuestion, CheckQuestion, RestartGame } =
-  GameDataSlice.actions;
+export const {
+  GetArrayOfWord,
+  CheckLastQuestion,
+  CheckQuestion,
+  RestartGame,
+  LoginUser,
+} = GameDataSlice.actions;
 export default GameDataSlice.reducer;

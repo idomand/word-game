@@ -7,6 +7,11 @@ import GameBoard from "./Components/GameBoard";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
+import { Auth } from "./Firebase/firebase-config";
+import LoginPage from "./Components/LoginPage";
+
+console.log(Auth.currentUser);
+
 function App() {
   return (
     <Provider store={store}>
@@ -15,6 +20,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/allWords" element={<AllWords />} />
+            <Route path="/login-page" element={<LoginPage />} />
+
             {/* <Route path="/score-board" element={<ScoreBoard />} /> */}
             <Route path="/" element={<GameBoard />} />
           </Routes>
