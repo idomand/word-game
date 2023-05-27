@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
-import { User } from "firebase/auth";
 import { GlobalStateType } from "../global";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
-import { GetAllWordsFromFirestore } from "../Firebase/FirestoreCrud";
+
 const initialState: GlobalStateType = {
   wordObject: firstWord,
   score: 0,
@@ -40,17 +39,6 @@ export const GameDataSlice = createSlice({
         state.userName = null;
         state.userId = null;
       }
-    },
-
-    GetAllWords: (state, action) => {
-      let arrayOfWords;
-      async function helper() {
-        arrayOfWords = await GetAllWordsFromFirestore();
-        console.log("arrayOfWords", arrayOfWords);
-        return arrayOfWords;
-      }
-      let foo = helper();
-      console.log("foo", foo);
     },
 
     GetArrayOfWords: (
@@ -123,6 +111,5 @@ export const {
   CheckQuestion,
   RestartGame,
   LoginUser,
-  GetAllWords,
 } = GameDataSlice.actions;
 export default GameDataSlice.reducer;

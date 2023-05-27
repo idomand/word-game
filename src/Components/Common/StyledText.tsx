@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 export function H1({ children }: PropsWithChildren) {
   return <h1 className=" mb-3 text-center text-2xl font-bold">{children}</h1>;

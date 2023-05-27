@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { H1 } from "../Components/Common/StyledText";
 import BasicWord from "../Components/Common/StyledWord";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
-import { GetArrayOfWords, GetAllWords } from "../Redux/GameDataSlice";
-
+import { GetArrayOfWords } from "../Redux/GameDataSlice";
 export default function AllWords() {
   const dispatch = useAppDispatch();
   const arrayOfWords = useAppSelector((state) => state.arrayOfWords);
@@ -12,22 +11,12 @@ export default function AllWords() {
 
   async function getListOfWOrds() {
     dispatch(
-      GetAllWords({ numberOfWords: 20, startingIndex: randomStartingIndex })
+      GetArrayOfWords({ numberOfWords: 20, startingIndex: randomStartingIndex })
     );
   }
-
   useEffect(() => {
     getListOfWOrds();
   }, []);
-
-  // async function getListOfWOrds() {
-  //   dispatch(
-  //     GetArrayOfWords({ numberOfWords: 20, startingIndex: randomStartingIndex })
-  //   );
-  // }
-  // useEffect(() => {
-  //   getListOfWOrds();
-  // }, []);
 
   return (
     <div>

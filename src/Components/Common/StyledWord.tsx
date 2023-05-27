@@ -1,4 +1,3 @@
-import React from "react";
 import { BasicWordType } from "../../global";
 export default function BasicWord({
   word,
