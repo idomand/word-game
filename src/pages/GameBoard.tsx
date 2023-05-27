@@ -74,6 +74,7 @@ export default function GameBoard() {
         <section className="">
           <GameStateWrapper />
           <QuestionWrapper
+            wordId={wordObject.wordId}
             Meaning={wordObject.Meaning}
             Artikel={wordObject.Artikel}
             Plural={wordObject.Plural}
