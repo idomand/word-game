@@ -5,6 +5,7 @@ export default function QuestionWrapper({
   Artikel,
   Meaning,
   Plural,
+  wordId,
 }: BasicWordType) {
   return (
     <div className="rounded-t-lg border-t-2 border-white bg-white">
