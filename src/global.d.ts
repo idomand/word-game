@@ -5,6 +5,7 @@ export type BasicWordType = {
   Plural: string;
   Meaning: string;
   Artikel: string;
+  wordId: string;
 };
 
 export type GlobalStateType = {

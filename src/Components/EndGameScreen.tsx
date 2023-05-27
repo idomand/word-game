@@ -35,6 +35,7 @@ export default function EndGameScreen() {
                   Plural={element.Plural}
                   Meaning={element.Meaning}
                   Artikel={element.Artikel}
+                  wordId={element.wordId}
                 />
               );
             })}
@@ -51,6 +52,7 @@ export default function EndGameScreen() {
                   Plural={element.Plural}
                   Meaning={element.Meaning}
                   Artikel={element.Artikel}
+                  wordId={element.wordId}
                 />
               );
             })}

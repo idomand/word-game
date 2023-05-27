@@ -1,14 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
-import AllWords from "./Components/AllWords";
+import AllWords from "./pages/AllWords";
 import ScoreBoard from "./Components/ScoreBoard";
-// import GameContextComponent from "./lib/GameContextComponent";
-import GameBoard from "./Components/GameBoard";
+import GameBoard from "./pages/GameBoard";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
 import { Auth } from "./Firebase/firebase-config";
-import HomeScreen from "./Components/HomeScreen";
+import HomeScreen from "./pages/HomeScreen";
 
 console.log(Auth.currentUser);
 

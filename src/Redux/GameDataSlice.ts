@@ -4,7 +4,7 @@ import { User } from "firebase/auth";
 import { GlobalStateType } from "../global";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
-
+import { GetAllWordsFromFirestore } from "../Firebase/FirestoreCrud";
 const initialState: GlobalStateType = {
   wordObject: firstWord,
   score: 0,
@@ -42,7 +42,18 @@ export const GameDataSlice = createSlice({
       }
     },
 
-    GetArrayOfWord: (
+    GetAllWords: (state, action) => {
+      let arrayOfWords;
+      async function helper() {
+        arrayOfWords = await GetAllWordsFromFirestore();
+        console.log("arrayOfWords", arrayOfWords);
+        return arrayOfWords;
+      }
+      let foo = helper();
+      console.log("foo", foo);
+    },
+
+    GetArrayOfWords: (
       state,
       action: {
         type: string;
@@ -107,10 +118,11 @@ export const GameDataSlice = createSlice({
 });
 
 export const {
-  GetArrayOfWord,
+  GetArrayOfWords,
   CheckLastQuestion,
   CheckQuestion,
   RestartGame,
   LoginUser,
+  GetAllWords,
 } = GameDataSlice.actions;
 export default GameDataSlice.reducer;

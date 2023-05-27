@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { RestartGame } from "../Redux/GameDataSlice";
 import { Link } from "react-router-dom";
 import { Auth, googleProvider } from "../Firebase/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { LoginUser } from "../Redux/GameDataSlice";
-
 export default function HomeScreen() {
   const dispatch = useAppDispatch();
   const userName = useAppSelector((state) => state.userName);
+
   async function signInWithGooglePopup() {
     try {
       await signInWithPopup(Auth, googleProvider);

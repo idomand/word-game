@@ -1,13 +1,13 @@
 import { useState } from "react";
-import ButtonWrapper from "./ButtonWrapper";
-import QuestionWrapper from "./QuestionWrapper";
-import EndGameScreen from "./EndGameScreen";
-import GameStateWrapper from "./GameStateWrapper";
+import ButtonWrapper from "../Components/ButtonWrapper";
+import QuestionWrapper from "../Components/QuestionWrapper";
+import EndGameScreen from "../Components/EndGameScreen";
+import GameStateWrapper from "../Components/GameStateWrapper";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import {
   CheckLastQuestion,
   CheckQuestion,
-  GetArrayOfWord,
+  GetArrayOfWords,
 } from "../Redux/GameDataSlice";
 export default function GameBoard() {
   const [numberOfWordsInGame, setNumberOfWordsInGame] = useState(3);
@@ -24,7 +24,7 @@ export default function GameBoard() {
   function startGameFunc() {
     const randomStartingIndex = Math.floor(Math.random() * 1000);
     dispatch(
-      GetArrayOfWord({
+      GetArrayOfWords({
         numberOfWords: numberOfWordsInGame,
         startingIndex: randomStartingIndex,
       })
