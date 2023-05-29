@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { H1 } from "../Components/Common/StyledText";
 import BasicWord from "../Components/Common/BasicWord";
-import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
-import { GetArrayOfWords } from "../Redux/GameDataSlice";
+import { H1 } from "../Components/Common/StyledText";
 import Pagination from "../Components/Pagination";
+import { useFetchAllWordsFromFirestoreQuery } from "../Redux/APISlice";
+import { GetAllWordsFromFirestore } from "../Redux/GameDataSlice";
+import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
+
 export default function AllWords() {
   const dispatch = useAppDispatch();
 
-  const arrayOfWords = useAppSelector((state) => state.arrayOfWords);
+  const arrayOfWords = useAppSelector((state) => state.GameData.arrayOfWords);
   const [currentPage, setCurrentPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [recordsPerPage] = useState(20);
@@ -16,17 +18,30 @@ export default function AllWords() {
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const wordsToShow = arrayOfWords.slice(indexOfFirstRecord, indexOfLastRecord);
 
-  async function getListOfWOrds() {
-    await dispatch(
-      GetArrayOfWords({
-        numberOfWords: 2000,
-        startingIndex: 1,
-      })
-    );
-  }
+  const { data } = useFetchAllWordsFromFirestoreQuery();
+
   useEffect(() => {
-    getListOfWOrds();
-  }, []);
+    console.log("data", data);
+
+    if (data) {
+      async function getListOfWOrds() {
+        await dispatch(GetAllWordsFromFirestore({ data }));
+      }
+      getListOfWOrds();
+    }
+  }, [data]);
+
+  // useEffect(() => {
+  //   async function getListOfWOrds() {
+  //     await dispatch(
+  //       GetArrayOfWords({
+  //         numberOfWords: 2000,
+  //         startingIndex: 1,
+  //       })
+  //     );
+  //   }
+  //   getListOfWOrds();
+  // }, []);
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(arrayOfWords.length / recordsPerPage));

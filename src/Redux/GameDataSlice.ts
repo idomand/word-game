@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
-import { GlobalStateType } from "../global";
+import { BasicWordType, GlobalStateType } from "../global";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
 
@@ -39,6 +39,20 @@ export const GameDataSlice = createSlice({
         state.userName = null;
         state.userId = null;
       }
+    },
+
+    GetAllWordsFromFirestore: (
+      state,
+      action: {
+        payload: BasicWordType[];
+      }
+    ) => {
+      console.log("action", action);
+      console.log(
+        "action.payload.data[0].allWords",
+        action.payload.data[0].allWords
+      );
+      state.arrayOfWords = action.payload.data[0].allWords;
     },
 
     GetArrayOfWords: (
@@ -111,5 +125,6 @@ export const {
   CheckQuestion,
   RestartGame,
   LoginUser,
+  GetAllWordsFromFirestore,
 } = GameDataSlice.actions;
 export default GameDataSlice.reducer;
