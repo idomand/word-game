@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
-import { RestartGame } from "../Redux/GameDataSlice";
+import { signInWithPopup } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { Auth, googleProvider } from "../Firebase/firebase-config";
-import { signInWithPopup } from "firebase/auth";
-import { LoginUser } from "../Redux/GameDataSlice";
+import { LoginUser, RestartGame } from "../Redux/GameDataSlice";
+import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 export default function HomeScreen() {
   const dispatch = useAppDispatch();
-  const userName = useAppSelector((state) => state.userName);
+  const userName = useAppSelector((state) => state.GameData.userName);
 
   async function signInWithGooglePopup() {
     try {

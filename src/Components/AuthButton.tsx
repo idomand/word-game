@@ -6,7 +6,7 @@ import { LoginUser } from "../Redux/GameDataSlice";
 type Props = {};
 
 export default function AuthButton({}: Props) {
-  const userName = useAppSelector((state) => state.userName);
+  const userName = useAppSelector((state) => state.GameData.userName);
   const dispatch = useAppDispatch();
   async function signInWithGooglePopup() {
     try {

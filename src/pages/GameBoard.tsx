@@ -1,24 +1,24 @@
 import { useState } from "react";
 import ButtonWrapper from "../Components/ButtonWrapper";
-import QuestionWrapper from "../Components/QuestionWrapper";
 import EndGameScreen from "../Components/EndGameScreen";
 import GameStateWrapper from "../Components/GameStateWrapper";
-import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
+import QuestionWrapper from "../Components/QuestionWrapper";
 import {
   CheckLastQuestion,
   CheckQuestion,
   GetArrayOfWords,
 } from "../Redux/GameDataSlice";
+import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 export default function GameBoard() {
   const [numberOfWordsInGame, setNumberOfWordsInGame] = useState(3);
 
   const dispatch = useAppDispatch();
-  const arrayOfWords = useAppSelector((state) => state.arrayOfWords);
-  const isGameEnded = useAppSelector((state) => state.isGameEnded);
-  const isGameStated = useAppSelector((state) => state.isGameStated);
-  const wordObject = useAppSelector((state) => state.wordObject);
+  const arrayOfWords = useAppSelector((state) => state.GameData.arrayOfWords);
+  const isGameEnded = useAppSelector((state) => state.GameData.isGameEnded);
+  const isGameStated = useAppSelector((state) => state.GameData.isGameStated);
+  const wordObject = useAppSelector((state) => state.GameData.wordObject);
   const indexOfWordInArray = useAppSelector(
-    (state) => state.indexOfWordInArray
+    (state) => state.GameData.indexOfWordInArray
   );
 
   function startGameFunc() {

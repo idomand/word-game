@@ -1,12 +1,11 @@
-import React from "react";
 import { useAppSelector } from "../Redux/ReduxHooks";
 
 export default function GameStateWrapper() {
-  const score = useAppSelector((state) => state.score);
+  const score = useAppSelector((state) => state.GameData.score);
 
-  const arrayOfWords = useAppSelector((state) => state.arrayOfWords);
+  const arrayOfWords = useAppSelector((state) => state.GameData.arrayOfWords);
   const indexOfWordInArray = useAppSelector(
-    (state) => state.indexOfWordInArray
+    (state) => state.GameData.indexOfWordInArray
   );
 
   return (

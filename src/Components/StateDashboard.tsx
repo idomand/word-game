@@ -2,17 +2,17 @@ import { useAppSelector } from "../Redux/ReduxHooks";
 type Props = {};
 
 export default function StateDashboard({}: Props) {
-  const score = useAppSelector((state) => state.score);
-  const isGameEnded = useAppSelector((state) => state.isGameEnded);
+  const score = useAppSelector((state) => state.GameData.score);
+  const isGameEnded = useAppSelector((state) => state.GameData.isGameEnded);
   const indexOfWordInAllData = useAppSelector(
-    (state) => state.indexOfWordInAllData
+    (state) => state.GameData.indexOfWordInAllData
   );
-  const isGameStated = useAppSelector((state) => state.isGameStated);
+  const isGameStated = useAppSelector((state) => state.GameData.isGameStated);
   const indexOfWordInArray = useAppSelector(
-    (state) => state.indexOfWordInArray
+    (state) => state.GameData.indexOfWordInArray
   );
-  const wordObject = useAppSelector((state) => state.wordObject);
-  const arrayOfWords = useAppSelector((state) => state.arrayOfWords);
+  const wordObject = useAppSelector((state) => state.GameData.wordObject);
+  const arrayOfWords = useAppSelector((state) => state.GameData.arrayOfWords);
 
   return (
     <div>

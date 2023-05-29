@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { RestartGame } from "../Redux/GameDataSlice";
+import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import AuthButton from "./AuthButton";
-import { GetAllWordsFromFirestore } from "../Redux/GameDataSlice";
-import { useFetchAllWordsFromFirestoreQuery } from "../Redux/APISlice";
-import { useEffect } from "react";
 
 export default function Header() {
   const dispatch = useAppDispatch();

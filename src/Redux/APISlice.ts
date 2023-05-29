@@ -1,11 +1,5 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import {
-  arrayUnion,
-  collection,
-  doc,
-  updateDoc,
-  getDocs,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import { db } from "../Firebase/firebase-config";
 import { BasicWordType } from "../global";
