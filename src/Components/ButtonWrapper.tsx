@@ -1,4 +1,4 @@
-import { QuestionButton } from "./Common/StyledButton";
+import { QuestionButton } from "./Common/StyledButtons";
 
 type ButtonWrapperProps = {
   checkUserAnswer: (userAnswer: "Der" | "Die" | "Das") => void;

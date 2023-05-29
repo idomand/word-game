@@ -1,11 +1,12 @@
-import React from "react";
-
+import { BasicWordType } from "../../global";
 export default function BasicWord({
   word,
   Artikel,
   Plural,
   Meaning,
-}: basicWord) {
+  wordId,
+}: BasicWordType) {
+  function openWordModal(wordId: string) {}
   let artikelStyle;
 
   switch (Artikel) {
@@ -26,11 +27,14 @@ export default function BasicWord({
   }
 
   return (
-    <div
-      className={`m-1  flex justify-center rounded-md border-2 p-2 shadow-xl ${artikelStyle} `}
+    <button
+      onClick={() => {
+        openWordModal(wordId);
+      }}
+      className={`m-1  flex justify-center rounded-md border-2 p-2 shadow-xl ${artikelStyle} cursor-pointer `}
       key={Meaning}
     >
       <p>{`The ${Meaning} : ${Artikel} ${word}`} </p>
-    </div>
+    </button>
   );
 }
