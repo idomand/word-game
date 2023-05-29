@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { H1 } from "../Components/Common/StyledText";
-import BasicWord from "../Components/Common/StyledWord";
+import BasicWord from "../Components/Common/BasicWord";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { GetArrayOfWords } from "../Redux/GameDataSlice";
 import Pagination from "../Components/Pagination";

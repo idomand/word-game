@@ -1,7 +1,7 @@
 import { RestartGame } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { H1, H2 } from "./Common/StyledText";
-import BasicWord from "./Common/StyledWord";
+import BasicWord from "./Common/BasicWord";
 
 export default function EndGameScreen() {
   const score = useAppSelector((state) => state.score);
