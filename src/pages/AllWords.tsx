@@ -5,7 +5,6 @@ import Pagination from "../Components/Pagination";
 import { useFetchAllWordsFromFirestoreQuery } from "../Redux/APISlice";
 import { GetAllWordsFromFirestore } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
-import DialogModalTester from "../Components/DialogModalTester";
 
 export default function AllWords() {
   const dispatch = useAppDispatch();
