@@ -27,7 +27,7 @@ export default function Pagination({
     let newArrayOfButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     if (currentPage < 10) {
       setButtonsToShow(newArrayOfButtons);
-    } else if (currentPage + 10 > numberOfPages) {
+    } else if (currentPage + 9 > numberOfPages) {
       newArrayOfButtons = [];
       for (let index = numberOfPages; index > numberOfPages - 10; index--) {
         newArrayOfButtons.unshift(index);

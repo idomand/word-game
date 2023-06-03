@@ -1,6 +1,6 @@
 import { RestartGame } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
-import BasicWord from "./Common/BasicWord";
+import BasicWordElement from "./Common/BasicWordElement";
 import { H1, H2 } from "./Common/StyledText";
 
 export default function EndGameScreen() {
@@ -29,7 +29,7 @@ export default function EndGameScreen() {
           <div>
             {arrayOfWordsRightAnswer.map((element) => {
               return (
-                <BasicWord
+                <BasicWordElement
                   key={element.word}
                   word={element.word}
                   Plural={element.Plural}
@@ -46,7 +46,7 @@ export default function EndGameScreen() {
           <div>
             {arrayOfWordsWrongAnswer.map((element) => {
               return (
-                <BasicWord
+                <BasicWordElement
                   key={element.word}
                   word={element.word}
                   Plural={element.Plural}
