@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { RestartGame } from "../Redux/GameDataSlice";
+import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import AuthButton from "./AuthButton";
 
 export default function Header() {
   const dispatch = useAppDispatch();
-  const userName = useAppSelector((state) => state.userName);
+  const userName = useAppSelector((state) => state.GameData.userName);
   let userToShow;
 
   if (userName) {
