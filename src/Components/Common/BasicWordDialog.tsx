@@ -50,19 +50,29 @@ export default function StyledDialog({
         }
       >
         <div className="flex flex-col items-center justify-center">
+          <h2 className="text-xl">The Word is:</h2>
           <p>
-            {Meaning}:{Artikel} {word}
+            {Meaning} :{Artikel} {word}
           </p>
           <p>Plural :{Plural}</p>
         </div>
-        <button
-          className="cursor-pointer border-2 bg-red-300"
-          onClick={() => {
-            setIsModalOpen(false);
-          }}
-        >
-          close
-        </button>
+
+        <div className="flex">
+          <button className="m-2 cursor-pointer border-2 bg-red-300 p-1">
+            Add to List of Words I Know{" "}
+          </button>
+          <button className="m-2 cursor-pointer border-2 bg-red-300 p-1">
+            Add to List of Extra Hard Words
+          </button>
+          <button
+            className="m-2 cursor-pointer border-2 bg-red-300 p-1"
+            onClick={() => {
+              setIsModalOpen(false);
+            }}
+          >
+            close
+          </button>
+        </div>
       </dialog>
     </>
   );
