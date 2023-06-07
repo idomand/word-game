@@ -9,7 +9,7 @@ const firestoreApi = createApi({
   reducerPath: "api",
   tagTypes: ["Score"],
   endpoints: (builder) => ({
-    fetchAllWordsFromFirestore: builder.query<BasicWordType[], void>({
+    fetchAllWordsFromFirestore: builder.query<any, void>({
       async queryFn() {
         try {
           const AllWordsArray: BasicWordType[] = [];
@@ -20,7 +20,7 @@ const firestoreApi = createApi({
             AllWordsArray.push({
               wordId: doc.id,
               ...doc.data(),
-            } as BasicWordType);
+            } as any);
           });
           return { data: AllWordsArray };
         } catch (error: any) {
@@ -33,5 +33,34 @@ const firestoreApi = createApi({
     }),
   }),
 });
+// const firestoreApi = createApi({
+//   baseQuery: fakeBaseQuery(),
+//   reducerPath: "api",
+//   tagTypes: ["Score"],
+//   endpoints: (builder) => ({
+//     fetchAllWordsFromFirestore: builder.query<BasicWordType[], void>({
+//       async queryFn() {
+//         try {
+//           const AllWordsArray: BasicWordType[] = [];
+//           const querySnapshot = await getDocs(
+//             collection(db, "allWordsInOneObject")
+//           );
+//           querySnapshot.forEach((doc) => {
+//             AllWordsArray.push({
+//               wordId: doc.id,
+//               ...doc.data(),
+//             } as BasicWordType);
+//           });
+//           return { data: AllWordsArray };
+//         } catch (error: any) {
+//           console.error(error.message);
+
+//           return { error: error.message };
+//         }
+//       },
+//       providesTags: ["Score"],
+//     }),
+//   }),
+// });
 export default firestoreApi;
 export const { useFetchAllWordsFromFirestoreQuery } = firestoreApi;

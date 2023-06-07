@@ -44,15 +44,9 @@ export const GameDataSlice = createSlice({
     GetAllWordsFromFirestore: (
       state,
       action: {
-        payload: BasicWordType[];
+        payload: any;
       }
     ) => {
-      console.log("action", action);
-      console.log("action.payload", action.payload);
-      console.log(
-        "action.payload.data[0].allWords",
-        action.payload.data[0].allWords
-      );
       state.arrayOfWords = action.payload.data[0].allWords;
     },
 
