@@ -48,6 +48,7 @@ export const GameDataSlice = createSlice({
       }
     ) => {
       console.log("action", action);
+      console.log("action.payload", action.payload);
       console.log(
         "action.payload.data[0].allWords",
         action.payload.data[0].allWords
