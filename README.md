@@ -13,6 +13,7 @@ https://resplendent-cactus-79b384.netlify.app/
 - [x] replace useContext and useReducer with Redux
 - [x] Add google auth
 - [ ] replace words.json with firebase FireStore
+- [ ] Add SSR
 - [ ] Add high score screen with all of the high scores from the database
 - [ ] Add the option to add a new words to the database
 - [ ] Add an option to remove words / to hide words that you know well
