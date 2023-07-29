@@ -1,5 +1,5 @@
-import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
 import Header from "./Components/Header";
 import { Auth } from "./Firebase/firebase-config";
 import store from "./Redux/store";
