@@ -23,7 +23,7 @@ export default function EndGameScreen() {
         your score is {score} out of {arrayOfWords.length}
       </H2>
 
-      <div className="flex w-full justify-around rounded-lg bg-gradient-to-r from-green-300 to-red-400 py-3">
+      <div className="flex w-full justify-around rounded-lg ">
         <div className="">
           <H2>Right Answers</H2>
           <div>
