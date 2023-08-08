@@ -15,7 +15,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex items-center justify-around border-b-2 py-1">
+    <header className="border-b- flex items-center justify-around py-1">
       <Link
         to="/GameBoard"
         className="text-12 flex cursor-pointer items-center font-bold hover:underline "
@@ -79,8 +79,8 @@ export default function Header() {
         Score board
       </Link>
       <div className="flex ">
-        <Link to="/allWords" className="mr-2 cursor-pointer  hover:underline">
-          Dictionairy
+        <Link to="/Dictionary" className="mr-2 cursor-pointer  hover:underline">
+          Dictionary
         </Link>{" "}
         <AuthButton />
       </div>

@@ -41,7 +41,7 @@ export default function AllWords() {
 
   return (
     <div>
-      <H1>All Words - page {currentPage}</H1>
+      <H1>Dictionary - page {currentPage}</H1>
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

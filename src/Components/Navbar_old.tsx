@@ -41,10 +41,10 @@ export default function Header() {
         Score board
       </Link>
       <Link
-        to="/allWords"
+        to="/Dictionary"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
       >
-        List of All Words
+        Dictionary
       </Link>{" "}
       <AuthButton />
     </header>
