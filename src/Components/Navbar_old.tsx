@@ -11,7 +11,7 @@ export default function Header() {
   if (userName) {
     userToShow = userName;
   } else {
-    userToShow = "anonymous";
+    userToShow = "player";
   }
 
   return (
@@ -34,17 +34,17 @@ export default function Header() {
       >
         Play
       </Link>
-      {/* <Link
+      <Link
         to="/score-board"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
       >
         Score board
-      </Link> */}
+      </Link>
       <Link
-        to="/allWords"
+        to="/Dictionary"
         className="cursor-pointer p-4 hover:bg-orange-300 hover:underline"
       >
-        List of All Words
+        Dictionary
       </Link>{" "}
       <AuthButton />
     </header>

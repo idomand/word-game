@@ -8,7 +8,7 @@ const initialState: GlobalStateType = {
   wordObject: firstWord,
   score: 0,
   // currentUser: null,
-  userName: "ido",
+  userName: null,
   userId: null,
   userEmail: null,
   indexOfWordInArray: 0,

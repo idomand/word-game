@@ -3,7 +3,10 @@ import BasicWordElement from "../Components/Common/BasicWordElement";
 import { H1 } from "../Components/Common/StyledText";
 import Pagination from "../Components/Pagination";
 import { useFetchAllWordsFromFirestoreQuery } from "../Redux/APISlice";
-import { GetAllWordsFromFirestore } from "../Redux/GameDataSlice";
+import {
+  GetAllWordsFromFirestore,
+  GetArrayOfWords,
+} from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 
 export default function AllWords() {
@@ -18,30 +21,19 @@ export default function AllWords() {
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const wordsToShow = arrayOfWords.slice(indexOfFirstRecord, indexOfLastRecord);
 
-  const { data } = useFetchAllWordsFromFirestoreQuery();
+  // const { data } = useFetchAllWordsFromFirestoreQuery();
 
   useEffect(() => {
-    console.log("data", data);
-
-    if (data) {
-      async function getListOfWOrds() {
-        await dispatch(GetAllWordsFromFirestore({ data }));
-      }
-      getListOfWOrds();
+    async function getListOfWOrds() {
+      await dispatch(
+        GetArrayOfWords({
+          numberOfWords: 2000,
+          startingIndex: 1,
+        })
+      );
     }
-  }, [data]);
-
-  // useEffect(() => {
-  //   async function getListOfWOrds() {
-  //     await dispatch(
-  //       GetArrayOfWords({
-  //         numberOfWords: 2000,
-  //         startingIndex: 1,
-  //       })
-  //     );
-  //   }
-  //   getListOfWOrds();
-  // }, []);
+    getListOfWOrds();
+  }, []);
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(arrayOfWords.length / recordsPerPage));
@@ -49,7 +41,7 @@ export default function AllWords() {
 
   return (
     <div>
-      <H1>All Words - page {currentPage}</H1>
+      <H1>Dictionary - page {currentPage}</H1>
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
