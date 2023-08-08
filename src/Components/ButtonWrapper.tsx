@@ -1,3 +1,5 @@
+import BasicQuestionButton from "./Common/BasicQuestionButton";
+
 type ButtonWrapperProps = {
   checkUserAnswer: (userAnswer: "Der" | "Die" | "Das") => void;
 };
@@ -5,31 +7,9 @@ type ButtonWrapperProps = {
 export default function ButtonWrapper({ checkUserAnswer }: ButtonWrapperProps) {
   return (
     <div className="bg-white">
-      <button
-        className="m-3 w-24 rounded border-2 border-solid border-blue-500 text-center hover:bg-blue-100"
-        onClick={() => {
-          checkUserAnswer("Der");
-        }}
-      >
-        Der
-      </button>
-      <button
-        onClick={() => {
-          checkUserAnswer("Die");
-        }}
-        className="m-3 w-24 rounded border-2 border-solid border-red-500 text-center hover:bg-red-100"
-      >
-        Die
-      </button>
-
-      <button
-        onClick={() => {
-          checkUserAnswer("Das");
-        }}
-        className="m-3 w-24 rounded border-2 border-solid border-green-500 text-center hover:bg-green-100"
-      >
-        Das
-      </button>
+      <BasicQuestionButton artikel="Der" checkUserAnswer={checkUserAnswer} />
+      <BasicQuestionButton artikel="Die" checkUserAnswer={checkUserAnswer} />
+      <BasicQuestionButton artikel="Das" checkUserAnswer={checkUserAnswer} />
     </div>
   );
 }

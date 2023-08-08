@@ -10,9 +10,7 @@ export default function BasicWordElement({
   wordId,
 }: BasicWordType) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   let artikelStyle;
-
   switch (Artikel) {
     case "Der":
       artikelStyle =

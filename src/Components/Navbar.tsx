@@ -15,7 +15,7 @@ export default function Header() {
   }
 
   return (
-    <header className="border-b- flex items-center justify-around py-1">
+    <header className="flex items-center justify-around border-b-2 py-1">
       <Link
         to="/GameBoard"
         className="text-12 flex cursor-pointer items-center font-bold hover:underline "
@@ -44,7 +44,7 @@ export default function Header() {
             height="48"
             rx="12"
             fill="white"
-            fill-opacity="0.2"
+            fillOpacity="0.2"
           />
           <path
             d="M19.9556 16.9733C19.4992 16.9733 19.1282 16.64 18.8664 16.2661C18.7245 16.0582 18.547 15.8833 18.3341 15.7414C18.1263 15.5944 17.8829 15.4854 17.6041 15.4144C17.3303 15.3383 17.0287 15.3003 16.6991 15.3003C15.9894 15.3003 15.3835 15.4702 14.8816 15.8098C14.3848 16.1495 14.0046 16.6387 13.7409 17.2775C13.4824 17.9163 13.3531 18.6869 13.3531 19.5893C13.3531 20.5019 13.4773 21.2826 13.7257 21.9315C13.9741 22.5805 14.3442 23.0773 14.836 23.422C15.3278 23.7668 15.9387 23.9391 16.6687 23.9391C17.3126 23.9391 17.8474 23.8454 18.2733 23.6578C18.7042 23.4702 19.0261 23.204 19.2391 22.8593C19.7004 22.1123 19.5768 21.7186 18.6988 21.7186H18.2353C17.4037 21.7186 16.7295 21.0445 16.7295 20.2129C16.7295 19.3813 17.4037 18.7072 18.2353 18.7072H21.4748C22.6676 18.7072 23.6345 19.6741 23.6345 20.8669C23.6345 22.2864 23.3329 23.5006 22.7296 24.5095C22.1313 25.5133 21.305 26.2839 20.2505 26.8213C19.201 27.3536 17.997 27.6198 16.6383 27.6198C15.1224 27.6198 13.7916 27.2978 12.6459 26.654C11.5001 26.0101 10.6053 25.0925 9.96145 23.9011C9.32266 22.7097 9.00327 21.2927 9.00327 19.6502C9.00327 18.3624 9.19845 17.2217 9.58882 16.2281C9.98426 15.2344 10.5318 14.3954 11.2314 13.711C11.931 13.0215 12.7397 12.5018 13.6573 12.152C14.5749 11.7971 15.5584 11.6197 16.6079 11.6197C17.5306 11.6197 18.3873 11.7515 19.1782 12.0151C19.9742 12.2737 20.6763 12.6438 21.2847 13.1254C21.8981 13.602 22.3924 14.1672 22.7676 14.8212C23.3729 15.8765 22.3935 16.9733 21.177 16.9733H19.9556Z"
@@ -67,17 +67,18 @@ export default function Header() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(24.25 24) rotate(45.9094) scale(33.415)"
             >
-              <stop stop-color="#010318" />
-              <stop offset="0.494792" stop-color="#FF2626" />
-              <stop offset="1" stop-color="#FFF626" />
+              <stop stopColor="#010318" />
+              <stop offset="0.494792" stopColor="#FF2626" />
+              <stop offset="1" stopColor="#FFF626" />
             </radialGradient>
           </defs>
         </svg>
         German Game
       </Link>
-      <Link to="/score-board" className="cursor-pointer  hover:underline">
+      {/* {userName && <p>Hi {userName}</p>} */}
+      {/* <Link to="/score-board" className="cursor-pointer  hover:underline">
         Score board
-      </Link>
+      </Link> */}
       <div className="flex ">
         <Link to="/Dictionary" className="mr-2 cursor-pointer  hover:underline">
           Dictionary

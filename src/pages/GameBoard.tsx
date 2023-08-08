@@ -9,6 +9,7 @@ import {
   GetArrayOfWords,
 } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
+import BasicQuestionButton from "../Components/Common/BasicQuestionButton";
 export default function GameBoard() {
   const [numberOfWordsInGame, setNumberOfWordsInGame] = useState(3);
 
@@ -81,7 +82,20 @@ export default function GameBoard() {
             word={wordObject.word}
           />
 
-          <ButtonWrapper checkUserAnswer={checkUserAnswer} />
+          <div className="flex flex-col items-center justify-center sm:flex-row">
+            <BasicQuestionButton
+              artikel="Der"
+              checkUserAnswer={checkUserAnswer}
+            />
+            <BasicQuestionButton
+              artikel="Die"
+              checkUserAnswer={checkUserAnswer}
+            />
+            <BasicQuestionButton
+              artikel="Das"
+              checkUserAnswer={checkUserAnswer}
+            />
+          </div>
         </section>
       )}
 

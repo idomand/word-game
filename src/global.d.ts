@@ -4,7 +4,9 @@ export type BasicWordType = {
   word: string;
   Plural: string;
   Meaning: string;
-  Artikel: string;
+  // Artikel: string;
+  Artikel: "Der" | "Die" | "Das";
+
   wordId: string;
 };
 
