@@ -32,7 +32,7 @@ export default function BasicWordElement({
 
   return (
     <div
-      className={`m-1  flex justify-center rounded-md border-2  shadow-xl ${artikelStyle}`}
+      className={`m-1 flex justify-center  rounded-md border-2 text-sm shadow-xl  sm:text-base ${artikelStyle}`}
     >
       <BasicWordDialog
         Artikel={Artikel}

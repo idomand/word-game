@@ -13,7 +13,6 @@ export default function AllWords() {
   const dispatch = useAppDispatch();
 
   const arrayOfWords = useAppSelector((state) => state.GameData.arrayOfWords);
-  console.log("arrayOfWords", arrayOfWords);
   const [currentPage, setCurrentPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [recordsPerPage] = useState(20);

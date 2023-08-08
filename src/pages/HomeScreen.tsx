@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Auth, googleProvider } from "../Firebase/firebase-config";
 import { LoginUser, RestartGame } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
+import AuthButton from "../Components/AuthButton";
 export default function HomeScreen() {
   const dispatch = useAppDispatch();
   const userName = useAppSelector((state) => state.GameData.userName);
@@ -25,8 +26,8 @@ export default function HomeScreen() {
   }
 
   return (
-    <section className="mt-10 flex flex-col items-center justify-center border-2 ">
-      <div className="flex flex-col items-center justify-center rounded-lg  border-2 border-orange-400 px-14 py-16">
+    <section className="mt-5 flex flex-col items-center justify-center sm:mt-10  ">
+      <div className="flex flex-col items-center justify-center rounded-lg  border-2 border-orange-400 px-7 py-8 sm:px-14 sm:py-16">
         <svg
           width="146"
           height="145"
@@ -76,9 +77,23 @@ export default function HomeScreen() {
             </radialGradient>
           </defs>
         </svg>
+        <h1 className="text-3xl font-bold">German Game</h1>
 
-        <h1>German Game</h1>
+        <Link
+          to="/GameBoard"
+          className="mt-4 rounded-full border-2 border-orange-400 bg-orange-400 py-2 px-4 text-xl text-white transition-all  duration-500 hover:bg-white hover:text-orange-400 sm:mt-8 sm:py-4 sm:px-8 sm:text-3xl"
+        >
+          Play Now
+        </Link>
       </div>
+
+      <div className="mt-2 text-2xl">
+        <AuthButton />
+      </div>
+
+      {/* <button onClick={signInWithGooglePopup} className="mt-2 text-2xl hover:underline sm:text-3xl ">
+        Sign up
+      </button> */}
 
       {/* <h1>welcome to the german artikel game</h1> 
       <p>would you like to login or or have a quick free play</p>

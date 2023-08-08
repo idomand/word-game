@@ -24,6 +24,7 @@ export default function Pagination({
   };
 
   function buttonsToShowFunc() {
+    let screenSize = window.innerWidth;
     let newArrayOfButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     if (currentPage < 10) {
       setButtonsToShow(newArrayOfButtons);

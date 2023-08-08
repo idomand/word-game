@@ -15,10 +15,10 @@ export default function Header() {
   }
 
   return (
-    <header className="border-b-1 flex items-center justify-around py-1">
+    <header className="flex items-center justify-around border-b-2 py-1">
       <Link
         to="/GameBoard"
-        className="text-12 cursor-pointer font-bold hover:underline "
+        className="text-12 flex cursor-pointer items-center font-bold hover:underline "
         onClick={() => {
           dispatch(RestartGame());
         }}
