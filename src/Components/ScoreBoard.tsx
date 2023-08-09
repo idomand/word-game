@@ -1,3 +1,3 @@
 export default function ScoreBoard() {
-  return <div>ScoreBoard</div>;
+  return <div>ScoreBoard!</div>;
 }
