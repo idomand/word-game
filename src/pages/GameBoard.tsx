@@ -3,6 +3,8 @@ import ButtonWrapper from "../Components/ButtonWrapper";
 import EndGameScreen from "../Components/EndGameScreen";
 import GameStateWrapper from "../Components/GameStateWrapper";
 import QuestionWrapper from "../Components/QuestionWrapper";
+import Hint from "../Components/Hint";
+
 import {
   CheckLastQuestion,
   CheckQuestion,
@@ -81,8 +83,9 @@ export default function GameBoard() {
             Plural={wordObject.Plural}
             word={wordObject.word}
           />
+          {/* <Hint Artikel={wordObject.Artikel} /> */}
 
-          <div className="flex flex-col items-center justify-center sm:flex-row">
+          <div className="flex flex-col items-center justify-center sm:mt-8 sm:flex-row">
             <BasicQuestionButton
               artikel="Der"
               checkUserAnswer={checkUserAnswer}

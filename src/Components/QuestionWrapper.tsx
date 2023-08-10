@@ -13,14 +13,9 @@ export default function QuestionWrapper({
       <h2 className="mt-4 text-center text-lg sm:text-2xl">
         What’s the correct article for…{" "}
       </h2>
-      <div className="my-8 text-center text-6xl font-bold">{word}</div>
-      <div className="relative mb-3 flex justify-center">
-        <div className="absolute top-1/2 z-10 h-[0.10px] w-full -translate-y-1/2 transform bg-gray-500 "></div>
-        <div className="z-20 mx-auto">
-          <Hint Artikel={Artikel} />
-        </div>
-      </div>
-      <div className="text-center"></div>
+      <Hint Artikel={Artikel} word={word} Meaning={Meaning} />
+
+      <div className="my-9 text-center text-6xl font-bold">{word}</div>
     </div>
   );
 }

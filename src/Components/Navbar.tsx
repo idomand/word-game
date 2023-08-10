@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="flex items-center justify-around border-b-2 py-1">
       <Link
-        to="/GameBoard"
+        to="/"
         className="text-12 flex cursor-pointer items-center font-bold hover:underline "
         onClick={() => {
           dispatch(RestartGame());
@@ -73,7 +73,7 @@ export default function Header() {
             </radialGradient>
           </defs>
         </svg>
-        German Game
+        German Games
       </Link>
       {/* {userName && <p>Hi {userName}</p>} */}
       {/* <Link to="/score-board" className="cursor-pointer  hover:underline">
