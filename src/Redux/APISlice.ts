@@ -25,6 +25,28 @@ const firestoreApi = createApi({
           return { data: AllWordsArray };
         } catch (error: any) {
           console.error(error.message);
+          return { error: error.message };
+        }
+      },
+      providesTags: ["Score"],
+    }),
+    GetTopScores: builder.query<any, void>({
+      async queryFn() {
+        try {
+          const topScores: any = [];
+          console.log("topScores", topScores);
+          const querySnapshot = await getDocs(
+            collection(db, "top-score-total")
+          );
+          querySnapshot.forEach((doc) => {
+            topScores.push({
+              topScoreData: doc.id,
+              ...doc.data(),
+            } as any);
+          });
+          return { data: topScores };
+        } catch (error: any) {
+          console.error(error.message);
 
           return { error: error.message };
         }
@@ -33,34 +55,6 @@ const firestoreApi = createApi({
     }),
   }),
 });
-// const firestoreApi = createApi({
-//   baseQuery: fakeBaseQuery(),
-//   reducerPath: "api",
-//   tagTypes: ["Score"],
-//   endpoints: (builder) => ({
-//     fetchAllWordsFromFirestore: builder.query<BasicWordType[], void>({
-//       async queryFn() {
-//         try {
-//           const AllWordsArray: BasicWordType[] = [];
-//           const querySnapshot = await getDocs(
-//             collection(db, "allWordsInOneObject")
-//           );
-//           querySnapshot.forEach((doc) => {
-//             AllWordsArray.push({
-//               wordId: doc.id,
-//               ...doc.data(),
-//             } as BasicWordType);
-//           });
-//           return { data: AllWordsArray };
-//         } catch (error: any) {
-//           console.error(error.message);
-
-//           return { error: error.message };
-//         }
-//       },
-//       providesTags: ["Score"],
-//     }),
-//   }),
-// });
 export default firestoreApi;
-export const { useFetchAllWordsFromFirestoreQuery } = firestoreApi;
+export const { useFetchAllWordsFromFirestoreQuery, useGetTopScoresQuery } =
+  firestoreApi;

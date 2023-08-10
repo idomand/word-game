@@ -1,3 +1,33 @@
+import { useEffect, useState } from "react";
+import { useGetTopScoresQuery } from "../Redux/APISlice";
+
 export default function ScoreBoard() {
-  return <div>ScoreBoard!</div>;
+  // console.log("currentData", currentData);
+
+  const [data, setData] = useState<any>(null);
+
+  const { currentData } = useGetTopScoresQuery();
+  console.log("currentData", currentData);
+  async function fetchData() {}
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log("data", data);
+  return (
+    <section>
+      <h1>score board</h1>
+      {currentData &&
+        currentData.map((data: any) => {
+          console.log("data", data);
+          return (
+            <p key={data.uuid}>
+              top score for {data.name} is {data.topScore}
+            </p>
+          );
+        })}
+      <p></p>
+    </section>
+  );
 }

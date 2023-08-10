@@ -76,9 +76,9 @@ export default function Header() {
         German Games
       </Link>
       {/* {userName && <p>Hi {userName}</p>} */}
-      {/* <Link to="/score-board" className="cursor-pointer  hover:underline">
+      <Link to="/score-board" className="cursor-pointer  hover:underline">
         Score board
-      </Link> */}
+      </Link>
       <div className="flex ">
         <Link to="/Dictionary" className="mr-2 cursor-pointer  hover:underline">
           Dictionary
