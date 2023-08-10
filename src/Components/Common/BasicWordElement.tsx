@@ -13,24 +13,21 @@ export default function BasicWordElement({
   let artikelStyle;
   switch (Artikel) {
     case "Der":
-      artikelStyle =
-        "border-blue-200 bg-blue-100 hover:bg-blue-300 border-blue-600";
+      artikelStyle = " hover:bg-cyan-100 text-blue-600 border-blue-600";
       break;
     case "Das":
-      artikelStyle =
-        "border-green-200 bg-green-100 hover:bg-green-300 border-green-600";
+      artikelStyle = " hover:bg-green-100 text-green-600  border-green-600";
       break;
     case "Die":
-      artikelStyle =
-        "border-red-200 bg-red-100 hover:bg-red-300 border-red-600";
+      artikelStyle = "hover:bg-red-100 text-red-600  border-red-600";
       break;
     default:
       break;
   }
-
   return (
     <div
-      className={`m-1 flex justify-center  rounded-md border-2 text-sm shadow-xl  sm:text-base ${artikelStyle}`}
+      className={`flex justify-center rounded-full border-[1px]  text-xs  shadow-xl transition-all duration-200  sm:m-1 sm:text-base  ${artikelStyle}
+      `}
     >
       <BasicWordDialog
         Artikel={Artikel}
@@ -44,7 +41,7 @@ export default function BasicWordElement({
       />
 
       <button
-        className="w-full border-2 p-2"
+        className="w-full p-2"
         onClick={() => {
           setIsModalOpen(true);
         }}
