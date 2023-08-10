@@ -6,12 +6,18 @@ import AuthButton from "./AuthButton";
 export default function Header() {
   const dispatch = useAppDispatch();
   const userName = useAppSelector((state) => state.GameData.userName);
+  const userId = useAppSelector((state) => state.GameData.userId);
+  const userTopScore = useAppSelector((state) => state.GameData.userTopScore);
+
   let userToShow;
+  let userIdToShow;
 
   if (userName) {
     userToShow = userName;
+    userIdToShow = userId;
   } else {
     userToShow = "player";
+    userIdToShow = "null";
   }
 
   return (
@@ -73,7 +79,7 @@ export default function Header() {
             </radialGradient>
           </defs>
         </svg>
-        German Games
+        German Games {userName}-{userId}-{userTopScore}
       </Link>
       {/* {userName && <p>Hi {userName}</p>} */}
       <Link to="/score-board" className="cursor-pointer  hover:underline">

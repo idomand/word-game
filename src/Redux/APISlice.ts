@@ -1,5 +1,14 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { collection, getDocs } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  DocumentData,
+  DocumentReference,
+  arrayUnion,
+  updateDoc,
+} from "firebase/firestore";
 
 import { db } from "../Firebase/firebase-config";
 import { BasicWordType } from "../global";
@@ -7,7 +16,7 @@ import { BasicWordType } from "../global";
 const firestoreApi = createApi({
   baseQuery: fakeBaseQuery(),
   reducerPath: "api",
-  tagTypes: ["Score"],
+  tagTypes: ["Score", "Words"],
   endpoints: (builder) => ({
     fetchAllWordsFromFirestore: builder.query<any, void>({
       async queryFn() {
@@ -28,7 +37,7 @@ const firestoreApi = createApi({
           return { error: error.message };
         }
       },
-      providesTags: ["Score"],
+      providesTags: ["Words"],
     }),
     GetTopScores: builder.query<any, void>({
       async queryFn() {
@@ -53,8 +62,31 @@ const firestoreApi = createApi({
       },
       providesTags: ["Score"],
     }),
+
+    GetUserScoresAndWords: builder.query<any, void>({
+      async queryFn() {
+        try {
+          const AllUserData: any = [];
+          const querySnapshot = await getDocs(collection(db, "usersData"));
+          querySnapshot.forEach((doc) => {
+            AllUserData.push({
+              userId: doc.id,
+              ...doc.data(),
+            } as any);
+          });
+          return { data: AllUserData };
+        } catch (error: any) {
+          console.error(error.message);
+          return { error: error.message };
+        }
+      },
+      providesTags: ["Score"],
+    }),
   }),
 });
 export default firestoreApi;
-export const { useFetchAllWordsFromFirestoreQuery, useGetTopScoresQuery } =
-  firestoreApi;
+export const {
+  useFetchAllWordsFromFirestoreQuery,
+  useGetTopScoresQuery,
+  useGetUserScoresAndWordsQuery,
+} = firestoreApi;

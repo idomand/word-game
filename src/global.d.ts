@@ -15,6 +15,8 @@ export type GlobalStateType = {
   userId: string | null;
   userEmail: string | null;
   // currentUser: null | User;
+  userTopScore: number;
+  generalTopScore: number;
   wordObject: basicWord;
   indexOfWordInAllData: number;
   indexOfWordInArray: number;
