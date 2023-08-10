@@ -3,6 +3,8 @@ import ButtonWrapper from "../Components/ButtonWrapper";
 import EndGameScreen from "../Components/EndGameScreen";
 import GameStateWrapper from "../Components/GameStateWrapper";
 import QuestionWrapper from "../Components/QuestionWrapper";
+import Hint from "../Components/Hint";
+
 import {
   CheckLastQuestion,
   CheckQuestion,
@@ -51,9 +53,13 @@ export default function GameBoard() {
               startGameFunc();
             }}
           >
-            <label htmlFor="numberOfWords">
+            <label
+              htmlFor="numberOfWords"
+              className="flex flex-col justify-center  text-center"
+            >
+              Number of rounds:
               <input
-                className="rounded text-center "
+                className="my-4 w-min rounded border-2 text-center "
                 id="numberOfWords"
                 type="number"
                 value={numberOfWordsInGame}
@@ -63,7 +69,7 @@ export default function GameBoard() {
               />
             </label>
             <input
-              className="mt-1 cursor-pointer border p-2 font-bold"
+              className="mt-1 cursor-pointer rounded-full border p-2 font-bold transition-all duration-200 hover:bg-orange-200"
               type="submit"
               value="start"
             />
@@ -81,8 +87,9 @@ export default function GameBoard() {
             Plural={wordObject.Plural}
             word={wordObject.word}
           />
+          {/* <Hint Artikel={wordObject.Artikel} /> */}
 
-          <div className="flex flex-col items-center justify-center sm:flex-row">
+          <div className="flex flex-col items-center justify-center sm:mt-8 sm:flex-row">
             <BasicQuestionButton
               artikel="Der"
               checkUserAnswer={checkUserAnswer}

@@ -14,7 +14,9 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div className="min-h-screen ">
+        <div className="">
+          {/* <div className="min-h-screen"> */}
+
           <Header />
           <Routes>
             <Route path="/Dictionary" element={<Dictionary />} />

@@ -28,7 +28,7 @@ export default function BasicQuestionButton({
       onClick={() => {
         checkUserAnswer(artikel);
       }}
-      className={`my-1 w-32 cursor-pointer rounded-full px-6 py-2  text-center text-white sm:my-0 sm:mx-1 ${artikelStyle} `}
+      className={`my-1 w-32 cursor-pointer rounded-full px-6 py-2 text-center text-white  transition-all duration-200 sm:my-0 sm:mx-1 ${artikelStyle} `}
     >
       {artikel}
     </button>

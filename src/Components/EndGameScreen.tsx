@@ -26,7 +26,7 @@ export default function EndGameScreen() {
       <div className="flex w-full justify-around rounded-lg border-2 ">
         <div className="">
           <H2>Right Answers</H2>
-          <div>
+          <div className="grid grid-cols-1 gap-1">
             {arrayOfWordsRightAnswer.map((element) => {
               return (
                 <BasicWordElement
@@ -43,7 +43,7 @@ export default function EndGameScreen() {
         </div>
         <div>
           <H2>Wrong Answers</H2>
-          <div>
+          <div className="grid grid-cols-1 gap-1">
             {arrayOfWordsWrongAnswer.map((element) => {
               return (
                 <BasicWordElement

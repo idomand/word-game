@@ -2,8 +2,10 @@ import React, { useState } from "react";
 
 type Props = {
   Artikel: "Der" | "Die" | "Das";
+  word: string;
+  Meaning: string;
 };
-const Tooltip = ({ Artikel }: Props) => {
+const Tooltip = ({ Artikel, word, Meaning }: Props) => {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   const handleMouseEnter = () => {
@@ -15,23 +17,28 @@ const Tooltip = ({ Artikel }: Props) => {
   };
 
   return (
-    <div className="relative inline-block rounded-full border-2 border-orange-400 bg-white py-1 px-2 text-center text-orange-400">
-      <button
-        className="cursor-pointer text-gray-700 hover:text-gray-900"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={() => {
-          setTooltipVisible(!isTooltipVisible);
-        }}
-      >
-        Hint
-      </button>
-      <div
-        className={`absolute ${
-          isTooltipVisible ? "block" : "hidden"
-        } bottom-6 left-12 whitespace-nowrap rounded-lg border-2 bg-gray-100 p-2 text-gray-800 shadow-md `}
-      >
-        {Artikel}
+    <div className="relative mb-3 mt-4 flex justify-center ">
+      <div className="absolute top-1/2 z-10 h-[0.10px] w-full -translate-y-1/2 transform bg-gray-500 "></div>
+      <div className="z-20 mx-auto ">
+        <div className="relative inline-block rounded-full border-[1px] border-blue-500 bg-white py-1 px-2 text-center ">
+          <button
+            className="cursor-pointer text-xs text-blue-500 "
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => {
+              setTooltipVisible(!isTooltipVisible);
+            }}
+          >
+            Hint
+          </button>
+          <div
+            className={`absolute ${
+              isTooltipVisible ? "block" : "hidden"
+            } top-9 -left-20  whitespace-nowrap rounded-full border-[1px] border-blue-500  py-1 px-2 text-xs text-blue-500 shadow-md `}
+          >
+            {word} means {Meaning} ({Artikel})
+          </div>
+        </div>{" "}
       </div>
     </div>
   );
