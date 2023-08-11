@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
 import { BasicWordType, GlobalStateType } from "../global";
 import { useGetUserScoresAndWordsQuery } from "./APISlice";
+import { testFunc } from "../Firebase/FirebaseCrud";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
 
@@ -91,7 +92,7 @@ export const GameDataSlice = createSlice({
       state,
       action: {
         type: string;
-        payload: { isAnswerCorrect: boolean };
+        payload: { isAnswerCorrect: boolean; uid: string | null };
       }
     ) => {
       let { isAnswerCorrect } = action.payload;
@@ -101,6 +102,8 @@ export const GameDataSlice = createSlice({
       } else {
         state.arrayOfWordsWrongAnswer.push(state.wordObject);
       }
+      console.log("poop2");
+      testFunc(action.payload.uid);
       state.isGameEnded = true;
       state.isGameStated = false;
     },

@@ -79,7 +79,6 @@ export default function Header() {
             </radialGradient>
           </defs>
         </svg>
-        German Games {userName}-{userId}-{userTopScore}
       </Link>
       {/* {userName && <p>Hi {userName}</p>} */}
       <Link to="/score-board" className="cursor-pointer  hover:underline">

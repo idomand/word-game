@@ -18,11 +18,7 @@ export default function AuthButton({}: Props) {
   useEffect(() => {
     if (data) {
       data.forEach((element: any) => {
-        console.log("userId", userId);
-        console.log("element.userId", element.userId);
         if (element.userId === userId) {
-          console.log("element", element);
-          console.log("element.topScore", element.topScore);
           setUserTopScore(element.topScore);
         }
       });
@@ -61,7 +57,6 @@ export default function AuthButton({}: Props) {
 
   return (
     <>
-      {userName}-{userTopScore}
       {userName ? (
         <div className="">
           <button

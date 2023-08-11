@@ -17,6 +17,8 @@ export default function GameBoard() {
 
   const dispatch = useAppDispatch();
   const arrayOfWords = useAppSelector((state) => state.GameData.arrayOfWords);
+  const userId = useAppSelector((state) => state.GameData.userId);
+
   const isGameEnded = useAppSelector((state) => state.GameData.isGameEnded);
   const isGameStated = useAppSelector((state) => state.GameData.isGameStated);
   const wordObject = useAppSelector((state) => state.GameData.wordObject);
@@ -37,7 +39,7 @@ export default function GameBoard() {
   const checkUserAnswer = (userAnswer: "Der" | "Die" | "Das") => {
     let isCorrect = userAnswer === wordObject.Artikel;
     if (arrayOfWords.length === indexOfWordInArray + 1) {
-      dispatch(CheckLastQuestion({ isAnswerCorrect: isCorrect }));
+      dispatch(CheckLastQuestion({ isAnswerCorrect: isCorrect, uid: userId }));
     } else {
       dispatch(CheckQuestion({ isAnswerCorrect: isCorrect }));
     }

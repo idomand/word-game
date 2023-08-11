@@ -8,7 +8,6 @@ export default function BasicQuestionButton({
   checkUserAnswer,
 }: Props) {
   let artikelStyle;
-  console.log("artikel", artikel);
   switch (artikel) {
     case "Der":
       artikelStyle = " bg-blue-500 hover:bg-blue-300 ";
