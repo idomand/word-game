@@ -7,18 +7,27 @@ import {
   DocumentReference,
   arrayUnion,
   updateDoc,
+  onSnapshot,
 } from "firebase/firestore";
 
 import { db } from "../Firebase/firebase-config";
 
 export async function testFunc(uid: string | null) {
-  console.log("poop1");
+  console.log("uid", uid);
   if (uid) {
-    const docRef = await doc(db, "usersData", uid);
-
-    const docData = await getDoc(docRef);
-    console.log("docData", docData);
-
-    console.log("docData.data()", docData.data());
+    const userDocRef = await doc(db, "usersData", uid);
+    const topScoreDocRef = await doc(db, "top-score-total", uid);
+    await updateDoc(userDocRef, {
+      topScore: 14,
+    });
+    await updateDoc(topScoreDocRef, {
+      topScore: 14,
+    });
   }
 }
+
+// export async function getScoreBoardData() {
+//   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
+//     console.log("Current data: ", doc.data());
+//   });
+// }
