@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
 import { BasicWordType, GlobalStateType } from "../global";
-import { testFunc } from "../Firebase/FirebaseCrud";
+import { updateUserTopScore } from "../Firebase/FirebaseCrud";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
 
@@ -43,7 +43,6 @@ export const GameDataSlice = createSlice({
         state.userTopScore = 0;
       }
     },
-
     GetAllWordsFromFirestore: (
       state,
       action: {
@@ -52,7 +51,6 @@ export const GameDataSlice = createSlice({
     ) => {
       state.arrayOfWords = action.payload.data[0].allWords;
     },
-
     GetArrayOfWords: (
       state,
       action: {
@@ -91,7 +89,7 @@ export const GameDataSlice = createSlice({
       state,
       action: {
         type: string;
-        payload: { isAnswerCorrect: boolean; uid: string | null };
+        payload: { isAnswerCorrect: boolean };
       }
     ) => {
       let { isAnswerCorrect } = action.payload;
@@ -101,8 +99,11 @@ export const GameDataSlice = createSlice({
       } else {
         state.arrayOfWordsWrongAnswer.push(state.wordObject);
       }
-      console.log("poop2");
-      testFunc(action.payload.uid);
+
+      if (state.userId && state.score > state.userTopScore) {
+        updateUserTopScore(state.userId, state.score);
+      }
+
       state.isGameEnded = true;
       state.isGameStated = false;
     },

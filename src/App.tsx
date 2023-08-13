@@ -8,8 +8,6 @@ import GameBoard from "./pages/GameBoard";
 import HomeScreen from "./pages/HomeScreen";
 import ScoreBoard from "./pages/ScoreBoard";
 
-console.log(Auth.currentUser);
-
 function App() {
   return (
     <Provider store={store}>

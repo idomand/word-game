@@ -12,18 +12,15 @@ import {
 
 import { db } from "../Firebase/firebase-config";
 
-export async function testFunc(uid: string | null) {
-  console.log("uid", uid);
-  if (uid) {
-    const userDocRef = await doc(db, "usersData", uid);
-    const topScoreDocRef = await doc(db, "top-score-total", uid);
-    await updateDoc(userDocRef, {
-      topScore: 14,
-    });
-    await updateDoc(topScoreDocRef, {
-      topScore: 14,
-    });
-  }
+export async function updateUserTopScore(uid: string, score: number) {
+  const userDocRef = await doc(db, "usersData", uid);
+  const topScoreDocRef = await doc(db, "top-score-total", uid);
+  await updateDoc(userDocRef, {
+    topScore: score,
+  });
+  await updateDoc(topScoreDocRef, {
+    topScore: score,
+  });
 }
 
 export async function getScoreBoard() {

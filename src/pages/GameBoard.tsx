@@ -39,7 +39,7 @@ export default function GameBoard() {
   const checkUserAnswer = (userAnswer: "Der" | "Die" | "Das") => {
     let isCorrect = userAnswer === wordObject.Artikel;
     if (arrayOfWords.length === indexOfWordInArray + 1) {
-      dispatch(CheckLastQuestion({ isAnswerCorrect: isCorrect, uid: userId }));
+      dispatch(CheckLastQuestion({ isAnswerCorrect: isCorrect }));
     } else {
       dispatch(CheckQuestion({ isAnswerCorrect: isCorrect }));
     }
