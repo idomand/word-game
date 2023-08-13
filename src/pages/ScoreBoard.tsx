@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
-import { useGetTopScoresQuery } from "../Redux/APISlice";
+import { getScoreBoard } from "../Firebase/FirebaseCrud";
+
+type topScoreData = {
+  name: string;
+  topScore: number;
+  uid: string;
+};
 
 export default function ScoreBoard() {
   // console.log("currentData", currentData);
+  const [currentData, setCurrentData] = useState<null | topScoreData[]>(null);
 
-  const { currentData } = useGetTopScoresQuery();
-  async function fetchData() {}
+  async function fetchData() {
+    const data = await getScoreBoard();
+    setCurrentData(data);
+  }
 
   useEffect(() => {
     fetchData();
@@ -13,7 +22,7 @@ export default function ScoreBoard() {
 
   return (
     <section>
-      <h1>score board</h1>
+      <h1 className="text-center">score board</h1>
       {currentData &&
         currentData.map((data: any) => {
           return (

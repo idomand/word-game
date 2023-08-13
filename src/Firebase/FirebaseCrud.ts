@@ -26,8 +26,14 @@ export async function testFunc(uid: string | null) {
   }
 }
 
-// export async function getScoreBoardData() {
-//   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
-//     console.log("Current data: ", doc.data());
-//   });
-// }
+export async function getScoreBoard() {
+  const topScores: any = [];
+  const querySnapshot = await getDocs(collection(db, "top-score-total"));
+  querySnapshot.forEach((doc) => {
+    topScores.push({
+      uid: doc.id,
+      ...doc.data(),
+    } as any);
+  });
+  return topScores;
+}

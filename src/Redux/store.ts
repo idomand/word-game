@@ -1,13 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import GameData from "./GameDataSlice";
-import firestoreApi from "./APISlice";
+// import firestoreApi from "./APISlice";
 
 const store = configureStore({
-  reducer: { GameData, [firestoreApi.reducerPath]: firestoreApi.reducer },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(firestoreApi.middleware),
-
-  //   [firestoreApi.reducerPath]: firestoreApi.reducer,
+  reducer: { GameData },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

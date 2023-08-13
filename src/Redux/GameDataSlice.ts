@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../German-words-data.json";
 import { BasicWordType, GlobalStateType } from "../global";
-import { useGetUserScoresAndWordsQuery } from "./APISlice";
 import { testFunc } from "../Firebase/FirebaseCrud";
 const randomStartingIndex = Math.floor(Math.random() * 1000);
 export const firstWord = data[randomStartingIndex];
