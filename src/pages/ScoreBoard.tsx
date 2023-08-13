@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState, lazy } from "react";
 import { getScoreBoard } from "../Firebase/FirebaseCrud";
+import LoadingSpinner from "../Components/Common/LoadingSpinner";
+import ScoreBoardTable from "../Components/ScoreBoardTable";
 
 type topScoreData = {
   name: string;
@@ -7,8 +9,11 @@ type topScoreData = {
   uid: string;
 };
 
+const ScoreBoardTableToShow = lazy(
+  () => import("../Components/ScoreBoardTable")
+);
+
 export default function ScoreBoard() {
-  // console.log("currentData", currentData);
   const [currentData, setCurrentData] = useState<null | topScoreData[]>(null);
 
   async function fetchData() {
@@ -23,15 +28,9 @@ export default function ScoreBoard() {
   return (
     <section>
       <h1 className="text-center">score board</h1>
-      {currentData &&
-        currentData.map((data: any) => {
-          return (
-            <p key={data.name}>
-              top score for {data.name} is {data.topScore}
-            </p>
-          );
-        })}
-      <p></p>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ScoreBoardTableToShow currentData={currentData} />
+      </Suspense>
     </section>
   );
 }
