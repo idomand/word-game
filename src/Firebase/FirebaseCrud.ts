@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 
 import { db } from "../Firebase/firebase-config";
+import { topScoreDataType } from "../global";
 
 export async function updateUserTopScore(uid: string, score: number) {
   const userDocRef = await doc(db, "usersData", uid);
@@ -24,7 +25,7 @@ export async function updateUserTopScore(uid: string, score: number) {
 }
 
 export async function getScoreBoard() {
-  const topScores: any = [];
+  const topScores: topScoreDataType[] = [];
   const querySnapshot = await getDocs(collection(db, "top-score-total"));
   querySnapshot.forEach((doc) => {
     topScores.push({

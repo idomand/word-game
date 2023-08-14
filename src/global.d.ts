@@ -27,3 +27,9 @@ export type GlobalStateType = {
   arrayOfWordsWrongAnswer: basicWord[];
   arrayOfWordsRightAnswer: basicWord[];
 };
+
+export type topScoreDataType = {
+  name: string;
+  topScore: number;
+  uid: string;
+};
