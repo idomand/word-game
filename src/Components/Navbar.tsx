@@ -7,7 +7,6 @@ export default function Header() {
   const dispatch = useAppDispatch();
   const userName = useAppSelector((state) => state.GameData.userName);
   const userId = useAppSelector((state) => state.GameData.userId);
-  const userTopScore = useAppSelector((state) => state.GameData.userTopScore);
 
   let userToShow;
   let userIdToShow;
@@ -80,7 +79,7 @@ export default function Header() {
           </defs>
         </svg>
       </Link>
-      {/* {userName && <p>Hi {userName}</p>} */}
+      <p>Hi {userToShow}</p>
       <Link to="/score-board" className="cursor-pointer  hover:underline">
         Score board
       </Link>
