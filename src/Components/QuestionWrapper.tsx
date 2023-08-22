@@ -1,4 +1,3 @@
-import { H2 } from "./Common/StyledText";
 import { BasicWordType } from "../global";
 import Hint from "./Hint";
 export default function QuestionWrapper({

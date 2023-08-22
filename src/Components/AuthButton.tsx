@@ -7,12 +7,12 @@ type Props = {};
 
 export default function AuthButton({}: Props) {
   const userName = useAppSelector((state) => state.GameData.userName);
-  console.log("userName", userName);
+  const userId = useAppSelector((state) => state.GameData.userId);
   const dispatch = useAppDispatch();
+
   async function signInWithGooglePopup() {
     try {
       await signInWithPopup(Auth, googleProvider);
-      console.log("Auth.currentUser", Auth.currentUser);
       if (Auth.currentUser) {
         dispatch(
           LoginUser({

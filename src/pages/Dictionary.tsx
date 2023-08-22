@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import BasicWordElement from "../Components/Common/BasicWordElement";
 import { H1 } from "../Components/Common/StyledText";
 import Pagination from "../Components/Pagination";
-import { useFetchAllWordsFromFirestoreQuery } from "../Redux/APISlice";
-import {
-  GetAllWordsFromFirestore,
-  GetArrayOfWords,
-} from "../Redux/GameDataSlice";
+import { GetArrayOfWords } from "../Redux/GameDataSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 
 export default function AllWords() {
@@ -20,8 +16,6 @@ export default function AllWords() {
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const wordsToShow = arrayOfWords.slice(indexOfFirstRecord, indexOfLastRecord);
-
-  // const { data } = useFetchAllWordsFromFirestoreQuery();
 
   useEffect(() => {
     async function getListOfWOrds() {

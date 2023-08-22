@@ -6,9 +6,7 @@ import store from "./Redux/store";
 import Dictionary from "./pages/Dictionary";
 import GameBoard from "./pages/GameBoard";
 import HomeScreen from "./pages/HomeScreen";
-import ScoreBoard from "./Components/ScoreBoard";
-
-console.log(Auth.currentUser);
+import ScoreBoard from "./pages/ScoreBoard";
 
 function App() {
   return (

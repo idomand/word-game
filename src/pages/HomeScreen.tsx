@@ -45,7 +45,7 @@ export default function HomeScreen() {
                 height="39.7183"
                 rx="6.76056"
                 fill="white"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
               />
               <path
                 d="M8.36328 14.2844V8.08533H11.2945C11.9793 8.08533 12.5815 8.21226 13.1011 8.46613C13.6206 8.71999 14.025 9.07718 14.3143 9.53768C14.6095 9.99818 14.7571 10.5472 14.7571 11.1849C14.7571 11.8166 14.6095 12.3656 14.3143 12.832C14.025 13.2926 13.6206 13.6497 13.1011 13.9036C12.5815 14.1575 11.9793 14.2844 11.2945 14.2844H8.36328ZM10.1167 12.8852H11.2237C11.5779 12.8852 11.8849 12.8202 12.1447 12.6904C12.4103 12.5546 12.617 12.3597 12.7645 12.1059C12.9121 11.8461 12.9859 11.5391 12.9859 11.1849C12.9859 10.8247 12.9121 10.5177 12.7645 10.2639C12.617 10.01 12.4103 9.81812 12.1447 9.68823C11.8849 9.55244 11.5779 9.48455 11.2237 9.48455H10.1167V12.8852Z"
@@ -92,9 +92,9 @@ export default function HomeScreen() {
                 width="42.2535"
                 height="41.9718"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"

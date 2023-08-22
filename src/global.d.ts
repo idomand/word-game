@@ -15,6 +15,8 @@ export type GlobalStateType = {
   userId: string | null;
   userEmail: string | null;
   // currentUser: null | User;
+  userTopScore: number;
+  generalTopScore: number;
   wordObject: basicWord;
   indexOfWordInAllData: number;
   indexOfWordInArray: number;
@@ -24,4 +26,10 @@ export type GlobalStateType = {
   arrayOfWords: basicWord[];
   arrayOfWordsWrongAnswer: basicWord[];
   arrayOfWordsRightAnswer: basicWord[];
+};
+
+export type topScoreDataType = {
+  name: string;
+  topScore: number;
+  uid: string;
 };
