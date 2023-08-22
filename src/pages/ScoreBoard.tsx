@@ -25,7 +25,7 @@ export default function ScoreBoard() {
   console.log("currentData", currentData);
   return (
     <section>
-      <h1 className="text-center">score board</h1>
+      <h1 className="text-center underline">Score Board</h1>
       <div className="mx-auto mt-3 w-fit ">
         {currentData &&
           currentData.map((data: any) => {
