@@ -1,14 +1,4 @@
-import {
-  collection,
-  getDocs,
-  doc,
-  getDoc,
-  DocumentData,
-  DocumentReference,
-  arrayUnion,
-  updateDoc,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
 
 import { db } from "../Firebase/firebase-config";
 import { topScoreDataType } from "../global";

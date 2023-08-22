@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState, lazy } from "react";
+import { useEffect, useState, lazy } from "react";
 import { getScoreBoard } from "../Firebase/FirebaseCrud";
 import { topScoreDataType } from "../global";
 

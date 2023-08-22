@@ -2,7 +2,6 @@ import { Auth, googleProvider } from "../Firebase/firebase-config";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { LoginUser } from "../Redux/GameDataSlice";
-import { useEffect, useState } from "react";
 
 type Props = {};
 
