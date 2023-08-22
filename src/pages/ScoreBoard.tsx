@@ -1,11 +1,6 @@
 import { Suspense, useEffect, useState, lazy } from "react";
 import { getScoreBoard } from "../Firebase/FirebaseCrud";
-import LoadingSpinner from "../Components/Common/LoadingSpinner";
 import { topScoreDataType } from "../global";
-
-const ScoreBoardTableToShow = lazy(
-  () => import("../Components/ScoreBoardTable")
-);
 
 export default function ScoreBoard() {
   const [currentData, setCurrentData] = useState<topScoreDataType[]>([
@@ -31,10 +26,18 @@ export default function ScoreBoard() {
   return (
     <section>
       <h1 className="text-center">score board</h1>
-      <div className="mx-auto w-fit border-2">
-        <Suspense fallback={<LoadingSpinner />}>
-          <ScoreBoardTableToShow dataToShow={currentData} />
-        </Suspense>
+      <div className="mx-auto mt-3 w-fit ">
+        {currentData &&
+          currentData.map((data: any) => {
+            return (
+              <div className="flex justify-between">
+                <p className="" key={data.name}>
+                  {data.name}
+                </p>
+                <p className="ml-3"> {data.topScore}</p>
+              </div>
+            );
+          })}
       </div>
     </section>
   );
