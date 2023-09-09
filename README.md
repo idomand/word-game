@@ -1,4 +1,4 @@
-# Reporting View - Software Challenge
+# German Words Game
 
 ![Project Screenshot](./src/images/Capture.PNG)
 
