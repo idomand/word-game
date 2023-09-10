@@ -18,11 +18,9 @@ export default function ScoreBoard() {
     );
     setCurrentData(sortedData);
   }
-  console.log("currentData", currentData);
   useEffect(() => {
     fetchData();
   }, []);
-  console.log("currentData", currentData);
 
   return (
     <section>
@@ -38,12 +36,15 @@ export default function ScoreBoard() {
         {currentData &&
           currentData.map((data: any, index) => {
             return (
-              <div className="mb-2 flex justify-around bg-gray-100 py-1">
+              <div
+                key={data.name}
+                className="mb-2 flex justify-around bg-gray-100 py-1"
+              >
                 <p className="w-24" key={data.name}>
                   #{++index} {data.name}
                 </p>
                 <p className="w-20 text-center"> {data.topScore}</p>
-                <p className="w-20 text-center"> {data.topScore}</p>
+                <p className="w-20 text-center"> {data.date}</p>
               </div>
             );
           })}

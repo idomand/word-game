@@ -11,6 +11,7 @@ export async function updateUserTopScore(uid: string, score: number) {
   });
   await updateDoc(topScoreDocRef, {
     topScore: score,
+    date: new Date().toLocaleDateString().replace(/\//g, "."),
   });
 }
 
