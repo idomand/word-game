@@ -8,6 +8,7 @@ export async function updateUserTopScore(uid: string, score: number) {
   const topScoreDocRef = await doc(db, "top-score-total", uid);
   await updateDoc(userDocRef, {
     topScore: score,
+    date: new Date().toLocaleDateString().replace(/\//g, "."),
   });
   await updateDoc(topScoreDocRef, {
     topScore: score,
@@ -16,13 +17,23 @@ export async function updateUserTopScore(uid: string, score: number) {
 }
 
 export async function getScoreBoard() {
-  const topScores: topScoreDataType[] = [];
-  const querySnapshot = await getDocs(collection(db, "top-score-total"));
-  querySnapshot.forEach((doc) => {
-    topScores.push({
+  const totalTopScores: topScoreDataType[] = [];
+  const totalQuerySnapshot = await getDocs(collection(db, "top-score-total"));
+  totalQuerySnapshot.forEach((doc) => {
+    totalTopScores.push({
       uid: doc.id,
       ...doc.data(),
     } as any);
   });
-  return topScores;
+
+  const userTopScore: topScoreDataType[] = [];
+  const userQuerySnapshot = await getDocs(collection(db, "usersData"));
+  userQuerySnapshot.forEach((doc) => {
+    userTopScore.push({
+      uid: doc.id,
+      ...doc.data(),
+    } as any);
+  });
+
+  return { totalTopScores, userTopScore };
 }
