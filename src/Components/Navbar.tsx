@@ -82,6 +82,9 @@ export default function Header() {
         </Link>
         <p>Hi {userToShow}</p>
       </div>
+      <Link to="/GameBoard" className="cursor-pointer  hover:underline">
+        Play
+      </Link>
 
       <Link to="/score-board" className="cursor-pointer  hover:underline">
         Score board

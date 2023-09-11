@@ -32,4 +32,5 @@ export type topScoreDataType = {
   name: string;
   topScore: number;
   uid: string;
+  date: string;
 };
